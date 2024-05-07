@@ -1,0 +1,4 @@
+[17-Oct-2023 02:06:40 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/selembardaun/public_html/aziz&linna/config.php on line 9
+[17-Oct-2023 02:35:44 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/selembardaun/public_html/aziz&linna/config.php on line 9
+[05-Nov-2023 23:38:38 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/selembardaun/public_html/cintya-ekky/index.php on line 360
+[06-Nov-2023 14:15:37 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/selembardaun/public_html/cintya-ekky/index.php on line 360
