@@ -7,9 +7,9 @@ $id_wedding = 1;
              
 $photo_pria = "man.png";
 $photo_wanita = "woman.png";
-$inisial_pria = "E";
-$nama_pria = "Ekky";
-$namalengkap_pria = "Ekky Arya";
+$inisial_pria = "R";
+$nama_pria = "Ramadhan";
+$namalengkap_pria = "Ramadhan Arya";
 $bpk_pria = "Muhammad Fadil";
 $ibu_pria = "Maryati";
 $inisial_wanita = "C";
@@ -140,7 +140,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 <div class="loading-screen" id="loading-screen">
   <div class="loading-bar">
     <div class="percentage" id="percentage">0%</div>
-	<div class="bg-percentage animate__animated animate__pulse"></div>
+	<div class="bg-percentage animate__animated animate__pulse animate__slower"></div>
 	For a better experience use Google Chrome and turn off Night/Dark Mode feature.
   </div>
 </div>
@@ -188,96 +188,121 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <div class="splide__track">
             <ul class="splide__list">
                 <li class="splide__slide">
-					<section id="big-banner">
+					<section id="cover" class="hero-section">
+						<div class="position-absolute inset-0 w-100 h-100">
+							<video autoplay loop playsinline preload="metadata" class="object-fit-cover w-100 h-100" style="opacity: 1;">
+								<source src="images/cover-bg.mp4" type="video/mp4">
+							</video>
+						</div>
 						<div class="content-cover">
 							<div id="block-cover" >
-								<div id="nama-catin"  >
-									<span class="namawanita"><?php echo $nama_wanita; ?></span><br/>
-									<span class="separator">&amp;</span> 
-									<span class="namapria"><?php echo $nama_pria; ?></span> 
+								<div class="label-cover animatedDown animate__slower">THE WEDDING OF</div>
+								<div id="nama-catin" class="animatedDown animate__slower">
+									<span class="namapria"><?php echo $nama_pria; ?></span><br/>
+									<span class="namawanita"><?php echo $nama_wanita; ?></span>
 								</div>
-								<h3 class="date-cover"><img src="css/tanggal.png"></h3>
+							</div>
+							<div id="kepada">
+								<label class="animatedUp animate__slower">Kepada Yth</label>
+								<h3 class="namaundangan animatedUp animate__slower">
+									<?php
+										if(isset($_GET['to'])){
+											$kepada = str_replace("-", " ", $_GET['to']);
+											echo $kepada;
+										} else {
+											echo "Bapak /Ibu Tamu Undangan";
+										}
+									?>
+								</h3>
 							</div>
 						</div>
 					</section>
 				</li>
                 <li class="splide__slide">
 					<section id="opening">
-						<div class="ornamen-kanan" ><img class="" src="images/ornamen-kanan.png"></div>
-						<div class="ornamen-kiri" ><img class="" src="images/ornamen-kiri.png"></div>
-						<div class="container" >
-							<div class="row">
-								<div class="col-sm-12"><img class="bismillah" src="images/bismillah.png"></div>
-							</div>
+						<div class="position-absolute inset-0 w-100 h-100">
+							<video autoplay loop playsinline preload="metadata" class="object-fit-cover w-100 h-100" style="opacity: 1;">
+								<source src="images/section2-bg.mp4" type="video/mp4">
+							</video>
+						</div>
+						<div class="container position-relative">
 							<div class="row text-opening">
-								<div class="col-md-3 col-xs-12">
-									<h1 class="page-header" >Dua Insan <br/>yang Bersatu</h1>
+								<div class="col-12">
+									<h1 class="page-header animatedUp animate__slower">Assalamu'alaikum Wr.Wb.</h1>
 								</div>
-								<div class="col-md-6 col-xs-12" >
-									<p>Kisah cinta kami dimulai pada suatu hari, dan sekarang, kami bersiap untuk memulai babak baru dalam hidup kami. Kami sangat bersemangat untuk berbagi momen indah ini bersama Anda.</p>
+								<div class="col-12 animatedUp animate__slower">
+									<p>Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/ Ibu/ Saudara/ I pada acara resepsi pernikahan kami.</p>
 								</div>
-							</div>
-							<div class="row photo-gallery">
-								<div class="col-sm-6" ><img class="" src="images/foto1.png"></div>
-								<div class="col-sm-6" ><img class="" src="images/foto2.jpg"></div>
-							</div>
-							
-							<div class="block-surat" >
-								<p>Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang</p>
-								<h4>Ar-Rum Ayat 21</h4>
 							</div>
 						</div>
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="couple">
-					  <div class="container">
-						<div class="section-title">
-						  <div class="row">
-							<div class="col-md-12 text-center">
-							  <h1 class="page-header" >Mempelai</h1>
-							</div>
-						  </div>
+					<section id="quran">
+						<div class="position-absolute inset-0 w-100 h-100">
+							<video autoplay loop playsinline preload="metadata" class="object-fit-cover w-100 h-100" style="opacity: 1;">
+								<source src="images/section3-bg.mp4" type="video/mp4">
+							</video>
 						</div>
-						
+						<div class="container position-relative">
+							<div class="row px-4">
+								<div class="col-12">
+									<h1 class="page-header animatedDown animate__slower">Q.S. Ar Rum: 21</h1>
+								</div>
+								<div class="col-12 animatedUp animate__slower">
+									<p>Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir. </p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</li>
+                <li class="splide__slide">
+					<section id="couple" class="h-100 d-flex align-items-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section4-bg.png" class="w-100 h-100 object-fit-cover ">
+						</div>
+						<div class="container">						
 						<div class="section-content-couple">
 							<div class="row">
-							  <div class="col-sm-6">
-								  <div class="row">
-									<div class="col-xs-8 col-sm-7" >
-									  <div class="best-people">
-										<img src="images/memp1.png">
-									  </div>
+								<div class="col-12 text-center">
+									<div class="nama-lengakap-pengantin animatedDown animate__slower"  ><?php echo $namalengkap_wanita; ?></div>
+									<div class="keluarga-block animatedDown animate__slower">
+										<span>Putri dari</span>
+										Bapak <?php echo $bpk_wanita; ?><br/>
+										dan Ibu <?php echo $ibu_wanita; ?>
 									</div>
-									<div class="col-xs-12">
-										<div class="nama-lengakap-pengantin"  ><?php echo $namalengkap_wanita; ?></div>
-										<div class="keluarga-block"  >
-											<span>Putri dari</span><br/>
-											Bapak <?php echo $bpk_wanita; ?><br/>
-											& Ibu <?php echo $ibu_wanita; ?>
-										</div>
-									</div>
+									<a href="" class="ig-link mt-3 animatedDown animate__slower">
+										<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+										citraayu777
+									</a>
+								</div>
+							</div>
+							<div class="row mt-4 mb-4">
+								<div class="col-6">
+								  <div class="image-mempelai animatedLeft animate__slower">
+									<img src="images/memp1.jpg">
 								  </div>
-							  </div>
-								<img class="dan-image" src="images/dan.png" >
-							  <div class="col-sm-6">
-								  <div class="row">
-									<div class="col-xs-8 col-sm-7" >
-									  <div class="best-people text-left">
-										<img src="images/memp2.png">
-									  </div>
-									</div>
-									<div class="col-xs-12">
-										<div class="nama-lengakap-pengantin"  ><?php echo $namalengkap_pria; ?></div>
-										<div class="keluarga-block"  >
-											<span>Putra dari</span><br/>
-											Bapak <?php echo $bpk_pria; ?><br/>
-											& Ibu <?php echo $ibu_pria; ?>
-										</div>
-									</div>
+								</div>
+								<div class="col-6">
+								  <div class="image-mempelai animatedRight animate__slower">
+									<img src="images/memp2.jpg">
 								  </div>
-							  </div>
-						  </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 text-center">
+									<div class="nama-lengakap-pengantin animatedUp animate__slower" ><?php echo $namalengkap_pria; ?></div>
+									<div class="keluarga-block animatedUp animate__slower"  >
+										<span>Putra dari</span>
+										Bapak <?php echo $bpk_pria; ?><br/>
+										dan Ibu <?php echo $ibu_pria; ?>
+									</div>
+									<a href="" class="ig-link mt-3 animatedUp animate__slower">
+										<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+										ramahdanarya_
+									</a>
+								</div>
+							</div>
 						</div>
 					  </div>
 					</section>
@@ -465,7 +490,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 						</div>
 					</section>
 				</li>
-                <li class="splide__slide">Slide 5</li>
             </ul>
         </div>
     </div>
@@ -499,8 +523,10 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 <script>
 
      document.addEventListener('DOMContentLoaded', function () {
-        var verticalSplide = new Splide('#vertical-slider', {
+        var splide = new Splide('#vertical-slider', {
             type: false,
+			interval : 5000, // Atur interval (dalam milidetik)
+			speed : 1000, // Atur kecepatan geser slide (dalam milidetik)
             direction: 'ttb', // Vertikal (Top to Bottom)
             height: '100vh', // Tinggi slider
             autoHeight: false, // Matikan penyesuaian tinggi otomatis
@@ -508,6 +534,23 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
             pagination: false // Matikan pagination bawaan
         }).mount();
 
+		var manualScroll = false; // Menyimpan status scroll manual
+
+		// Mendengarkan peristiwa scroll
+		window.addEventListener('scroll', function() {
+		  manualScroll = true; // Mengatur status scroll manual menjadi true
+		  splide.options.autoplay = false; // Menonaktifkan autoplay setelah scroll manual
+		});
+
+		// Mendengarkan peristiwa setelah slide berpindah
+		splide.on('moved', function() {
+		  // Jika tidak ada scroll manual, maka autoplay diaktifkan kembali
+		  if (!manualScroll) {
+			splide.options.autoplay = true;
+		  }
+		  manualScroll = false; // Mengatur status scroll manual menjadi false setelah slide berpindah
+		});
+		
         var paginationSplide = new Splide('#pagination-slider', {
             direction: 'ltr', // Horizontal (Left to Right)
             height: 'auto', // Tinggi slider
@@ -519,14 +562,19 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
             drag: true, // Aktifkan fungsi drag
             gap: 10 // Jarak antar slide
         }).mount();
+		
+		var slideButton = document.getElementById('fullscreenBtn');
+		slideButton.addEventListener('click', function () {
+		  splide.go(1); // Menggeser ke slide kedua (indeks dimulai dari 0)
+		});
 
         var customPagination = paginationSplide.Components.Elements.list;
 
-        verticalSplide.on('mounted', function () {
+        splide.on('mounted', function () {
             setActivePaginationItem(0); // Atur slide pertama sebagai aktif secara default
         });
 
-        verticalSplide.on('moved', function (newIndex) {
+        splide.on('moved', function (newIndex) {
             setActivePaginationItem(newIndex);
         });
 
@@ -544,12 +592,12 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
         customPagination.addEventListener('click', function (event) {
             if (event.target && event.target.classList.contains('custom-pagination-item')) {
                 var index = parseInt(event.target.getAttribute('data-splide-page'));
-                verticalSplide.go(index);
+                splide.go(index);
             }
         });
     });
 
-
+	// loading screen
 	document.addEventListener("DOMContentLoaded", function() {
 	var percentageText = document.getElementById("percentage");
 	var loadingScreen = document.getElementById("loading-screen");
@@ -589,22 +637,26 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 			$('#song-button').toggleClass('active');
 		});
 	});
-	document.addEventListener("DOMContentLoaded", function() {
-		var fullscreenBtn = document.getElementById("fullscreenBtn");
-		var content = document.getElementById("fullpage");
+	
+	// Fullscreen
+	// document.addEventListener("DOMContentLoaded", function() {
+		// var fullscreenBtn = document.getElementById("fullscreenBtn");
+		// var content = document.getElementById("fullpage");
 
-		fullscreenBtn.addEventListener("click", function() {
-			if (content.requestFullscreen) {
-			content.requestFullscreen();
-			} else if (content.mozRequestFullScreen) { /* Firefox */
-			content.mozRequestFullScreen();
-			} else if (content.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-			content.webkitRequestFullscreen();
-			} else if (content.msRequestFullscreen) { /* IE/Edge */
-			content.msRequestFullscreen();
-			}
-		});
-	});
+		// fullscreenBtn.addEventListener("click", function() {
+			// if (content.requestFullscreen) {
+			// content.requestFullscreen();
+			// } else if (content.mozRequestFullScreen) { /* Firefox */
+			// content.mozRequestFullScreen();
+			// } else if (content.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+			// content.webkitRequestFullscreen();
+			// } else if (content.msRequestFullscreen) { /* IE/Edge */
+			// content.msRequestFullscreen();
+			// }
+		// });
+	// });
+	
+	
 	// Set the date we're counting down to
 	var countDownDate = new Date("<?php echo $tanggal_timer; ?>").getTime();
 
@@ -635,17 +687,115 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 	
 	
 
-$(document).ready(function() {
-	$('.parent-container').magnificPopup({
-	  delegate: 'a', // child items selector, by clicking on it popup will open
-	  type: 'image',
-	  gallery:{enabled:true}
-	  // other options
+	$(document).ready(function() {
+		$('.parent-container').magnificPopup({
+		  delegate: 'a', // child items selector, by clicking on it popup will open
+		  type: 'image',
+		  gallery:{enabled:true}
+		  // other options
+		});
+		
+		// $('#cover').css({'height':($(window).height()) + 'px'});
+		// $('#big-banner').css({'height':($(window).height()) + 'px'});
 	});
 	
-    // $('#cover').css({'height':($(window).height()) + 'px'});
-    // $('#big-banner').css({'height':($(window).height()) + 'px'});
-});
+	document.addEventListener('DOMContentLoaded', function() {
+		const animatedBoxes = document.querySelectorAll('.animated');
+
+		const observer = new IntersectionObserver(entries => {
+		  entries.forEach(entry => {
+			if (entry.intersectionRatio > 0) {
+			  // Ketika elemen muncul di layar
+			  entry.target.classList.add('animate__animated'); // Menambahkan kelas animate__animated
+			} else {
+			  // Ketika elemen tidak lagi terlihat
+			  entry.target.classList.remove('animate__animated');
+			}
+		  });
+		});
+
+		// Mengamati setiap elemen dengan kelas 'box'
+		animatedBoxes.forEach(box => {
+		  observer.observe(box);
+		});
+	});
+	  document.addEventListener('DOMContentLoaded', function() {
+		const animatedUp = document.querySelectorAll('.animatedUp');
+		const animatedDown = document.querySelectorAll('.animatedDown');
+		const animatedRight = document.querySelectorAll('.animatedRight');
+		const animatedLeft = document.querySelectorAll('.animatedLeft');
+
+		const observerUp = new IntersectionObserver(entries => {
+		  entries.forEach(entry => {
+			if (entry.intersectionRatio > 0) {
+			  // Ketika elemen muncul di layar
+			  entry.target.classList.add('animate__animated', 'animate__fadeInUp'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+			} else {
+			  // Ketika elemen tidak lagi terlihat
+			  entry.target.classList.remove('animate__animated', 'animate__fadeInUp');
+			}
+		  });
+		});
+
+		// Mengamati setiap elemen dengan kelas 'animatedUp'
+		animatedUp.forEach(box => {
+		  observerUp.observe(box);
+		});
+		
+		
+		const observerDown = new IntersectionObserver(entries => {
+		  entries.forEach(entry => {
+			if (entry.intersectionRatio > 0) {
+			  // Ketika elemen muncul di layar
+			  entry.target.classList.add('animate__animated', 'animate__fadeInDown'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+			} else {
+			  // Ketika elemen tidak lagi terlihat
+			  entry.target.classList.remove('animate__animated', 'animate__fadeInDown');
+			}
+		  });
+		});
+
+		// Mengamati setiap elemen dengan kelas 'animatedDown'
+		animatedDown.forEach(box => {
+		  observerDown.observe(box);
+		});
+		
+		
+		const observerRight = new IntersectionObserver(entries => {
+		  entries.forEach(entry => {
+			if (entry.intersectionRatio > 0) {
+			  // Ketika elemen muncul di layar
+			  entry.target.classList.add('animate__animated', 'animate__fadeInRight'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+			} else {
+			  // Ketika elemen tidak lagi terlihat
+			  entry.target.classList.remove('animate__animated', 'animate__fadeInRight');
+			}
+		  });
+		});
+
+		// Mengamati setiap elemen dengan kelas 'animatedRight'
+		animatedRight.forEach(box => {
+		  observerRight.observe(box);
+		});
+		
+		
+		const observerLeft = new IntersectionObserver(entries => {
+		  entries.forEach(entry => {
+			if (entry.intersectionRatio > 0) {
+			  // Ketika elemen muncul di layar
+			  entry.target.classList.add('animate__animated', 'animate__fadeInLeft'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+			} else {
+			  // Ketika elemen tidak lagi terlihat
+			  entry.target.classList.remove('animate__animated', 'animate__fadeInLeft');
+			}
+		  });
+		});
+
+		// Mengamati setiap elemen dengan kelas 'animatedLeft'
+		animatedLeft.forEach(box => {
+		  observerLeft.observe(box);
+		});
+	  });
 </script>
 
 

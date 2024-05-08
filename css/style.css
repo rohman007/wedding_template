@@ -82,6 +82,9 @@ body.active{
 .loading-bar {
     width: 450px;
     position: relative;
+    font-size: 15px;
+    padding: 0 10px;
+    font-weight: 500;
 }
 
 .bg-percentage {
@@ -166,38 +169,39 @@ div#kepada label {
 div#wrapper {
     overflow-x: hidden;
     width: 451px;
+	max-width:100%;
     margin: 0 auto;
 	position:relative;
 }
-    #vertical-slider {
-        height: 100vh;
-    }
+#vertical-slider {
+	height: 100vh;
+}
 
-    .pagination-container {
-        overflow-x: auto;
-        white-space: nowrap;
-    }
+.pagination-container {
+	overflow-x: auto;
+	white-space: nowrap;
+}
 
-    .splide__pagination.custom-pagination {
-        display: inline-flex;
-        list-style: none;
-        padding: 0;
-        margin: 20px 0;
-    }
+.splide__pagination.custom-pagination {
+	display: inline-flex;
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+}
 
-    .custom-pagination-item {
-        margin-right: 10px;
-        cursor: pointer;
-        font-size: 18px;
-    }
+.custom-pagination-item {
+	margin-right: 10px;
+	cursor: pointer;
+	font-size: 18px;
+}
 
-    .custom-pagination-item.active {
-        font-weight: bold;
-    }
-	.splide__pagination {
-        display: flex !important;
-        justify-content: center;
-    }
+.custom-pagination-item.active {
+	font-weight: bold;
+}
+.splide__pagination {
+	display: flex !important;
+	justify-content: center;
+}
 .container{
 	max-width:100%
 }
@@ -264,33 +268,6 @@ div#kepada {
     margin-bottom: 0px;
     width: 100%;
 }
-div#sync2 img {
-    width: auto;
-	min-height:100%;
-    margin: 0 auto;
-    max-width: 110%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0px;
-}
-#sync2 .item {
-    border: 1px solid #ccc;
-    margin: 0 10px;
-    height: 92px;
-    overflow: hidden;
-    border-radius: 5px;
-    position: relative;
-}
-div#sync1 img {
-    max-height: 310px;
-    width: auto;
-    margin: auto;
-    max-width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 2px;
-}
 div#song-button button {
     position: absolute;
     width: 100%;
@@ -328,6 +305,7 @@ section#cover {
 	transition: all 1s ease;
     width: 451px;
 	background:#f2eade;
+	max-width:100%;
     height: 100%;
     top: 0;
     display: flex;
@@ -348,32 +326,33 @@ section#cover {
 
 /*opening*/
 section#opening {
-    padding: 70px 0;
+    padding: 0;
     position: relative;
-}
-section#opening:before {
-    width: 1400px;
-    background: url(background-hijau.png)no-repeat;
-    content: "";
-    height: 1400px;
-    position: absolute;
-    bottom: -700px;
-    right: -400px;
-    opacity: 0.1;
-    background-size: 100% 100%;
-}
-.row.text-opening {
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 80px;
+    justify-content: center;
 }
 .row.text-opening p {
     margin: 0;
-    font-size: 16pt;
-    line-height: normal;
+    color: rgb(104, 60, 72);
+    font-size: 16px;
+    text-align: center;
 }
+#opening .container{
+    max-width: 350px;
+    min-width: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+	padding:0 50px;
+}
+#opening h1.page-header {
+    color: rgb(104, 60, 72);
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.animatedDown,.animatedUp,.animatedRight,.animatedLeft{opacity:0}
 h1.page-header {
     margin: 0;
     font-weight: bold;
@@ -387,31 +366,8 @@ h1.page-header {
 .row.photo-gallery {
     padding: 0 10px;
 }
-
-
-
 img{max-width:100%}
-.cover-floral-left {
-    position: absolute;
-    width: 50%;
-    left: -3%;
-    top: -140px;
-}
-section#big-banner .cover-floral-left {
-    position: absolute;
-    width: 60%;
-    left: -6%;
-    top: -180px;
-}
-.cover-floral-left img{
-	position:relative;
-}
-.cover-floral-right {
-    position: absolute;
-    width: 40%;
-    right: 0;
-    top: -10px;
-}
+
 section#big-banner {
     width: 100%;
     overflow: hidden;
@@ -494,15 +450,6 @@ span.namapria {
     position: relative;
     z-index: 1;
 }
-span.separator {
-    padding: 0;
-    font-size: 37pt;
-    vertical-align: top;
-    position: relative;
-    top: -6px;
-    right: 0;
-    margin: -6px -27px 0 0;
-}
 span.namawanita {
     display: inline-block;
     vertical-align: bottom;
@@ -540,6 +487,36 @@ h3.date-cover img {
 .divider{
 	position:relative;
 	padding:70px 0 70px
+}
+
+/*QURAN SECTION*/
+section#quran {
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#quran .container{
+    max-width: 350px;
+    min-width: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+	padding:0 50px;
+}
+#quran h1.page-header {
+    color: rgb(52, 31, 38);
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 18px;
+    padding-top: 40px;
+}
+#quran p {
+    margin: 0;
+    color: rgb(52, 31, 38);
+    font-size: 15px;
+    text-align: center;
+    padding: 0 5px;
 }
 
 section#event .container,#gallery .container{position:relative;z-index:1;}
@@ -634,42 +611,40 @@ section#history .cover-floral-right {
     right: -10px;
 }
 section#couple {
-    padding: 70px 0;
-	color:#fff;
     position: relative;
-}
-
-section#couple:before {
-    width: 1400px;
-    background: url(background-putih.png)no-repeat;
-    content: "";
-    height: 1400px;
-    position: absolute;
-    bottom: -700px;
-    right: -400px;
-    opacity: 0.1;
-    background-size: 100% 100%;
 }
 section#couple h1.page-header {
     font-weight: normal;
     color: #fff;
     font-size: 42pt;
 }
-.best-people {
-    width: 100%;
-    padding-top: 100%;
-    overflow: hidden;
-    border-radius: 50%;
-    display: block;
+.image-mempelai {
     position: relative;
+    padding-top: 100%;
 }
-.best-people img {
-    border-radius: 30px;
+.image-mempelai img {
+    position: absolute;
     width: 100%;
-	position: absolute;
+    height: 100%;
+    object-fit: cover;
     top: 0;
-	left:0;
-	max-width:100%;
+    left: 0;
+    object-position: top;
+    border-radius: 50%;
+}
+.image-mempelai:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 124%;
+    height: 124%;
+    background: url(https://satu.love/_next/image?url=https%3A%2F%2Fbe.satu.love%2Flibrary%2Flibrary_1695615439667xhpqvhh.png&w=1920&q=75) no-repeat;
+    top: 50%;
+    left: 50%;
+    background-size: auto 100%;
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+    background-position: center;
 }
 img.dan-image {
     width: 80px;
@@ -681,34 +656,38 @@ img.dan-image {
     transform: translate(-50%);
 }
 .nama-lengakap-pengantin {
-    font-size: 35pt;
-    line-height: 1;
-    margin-top: 10px;
-    line-height: 1.2;
-    min-height: 113px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.section-content-couple .row .row {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-    flex-direction: column;
-	text-align:center;
-}
-.keluarga-block span {
-    font-weight: normal;
-    padding-bottom: 1px;
-    display: inline-block;
+    color: rgb(104, 60, 72);
+    font-family: Gautreaux;
+    font-size: 26px;
+    text-align: center;
+    font-weight: 500;
 }
 .section-content-couple {
     position: relative;
-	/* color:#7e6949; */
+    padding: 0 15px !important;
+}
+a.ig-link svg {
+    display: inline-block;
+    width: 11px;
+    margin-right: 4px;
+}
+a.ig-link {
+    background: rgba(142, 89, 120, 0.8);
+    text-decoration: none;
+    font-size: 11px;
+    padding: 3px 20px;
+    display: inline-block;
+    border-radius: 27px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
 }
 .keluarga-block {
-    margin-top: 15px;
+    margin-top: 12px;
     line-height: 1.2;
+    color: rgb(104, 60, 72);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
 }
 div#separator-bg {
     position: relative;
@@ -1137,12 +1116,6 @@ div#sync1{margin-bottom:20px}
 	form#formucapan button.btn.btn-primary i {
 		margin-right: 10px;
 	}
-	section#cover {
-		width: 451px;
-		height: 100%;
-		/* height: 100%; */
-		background: #fff;
-	}
 	.content-cover h2 {
 		font-weight: 600;
 		font-size: 11pt;
@@ -1169,24 +1142,6 @@ div#sync1{margin-bottom:20px}
 		margin-bottom: 0px;
 		margin-top: 10px;
 	}
-	.keluarga-block {
-		margin-top: 15px;
-		line-height: 1.2;
-	}
-	div#separator-bg {
-		font-size: 44pt;
-	}
-	div#separator-bg:before {
-		content: "&";
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-		font-size: 44rem;
-		color: rgba(0, 0, 0, 0.03);
-		opacity: 1;
-		font-weight: 500;
-	}
 	section#kolomucapan.divider h2 {font-size:32pt;}
 	section.divider h2 {
 		font-size: 28pt;
@@ -1197,25 +1152,21 @@ div#sync1{margin-bottom:20px}
 	div#block-comment {
 		padding: 0px 22px 2px;
 	}
-	section#couple {
-		position: relative;
-		background:#416051;
-	}
 	section#couple .container,section#history .container,#kolomucapan .container {z-index:1;position:relative}
-.icon-history i:before {
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-size: 15pt;
-    left: -1px;
-    position: relative;
-}
-.parent-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 60px;
-}
+	.icon-history i:before {
+		width: 100%;
+		display: block;
+		text-align: center;
+		font-size: 15pt;
+		left: -1px;
+		position: relative;
+	}
+	.parent-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-bottom: 60px;
+	}
 	.parent-container a {
 		display: block;
 		width: calc(25% - 20px);
@@ -1265,9 +1216,9 @@ button.open-invitation, button.open-invitation:hover, button.open-invitation:foc
     font-weight: 500;
     text-transform: capitalize;
     background-size: 100% 100% !important;
-    border: 2px solid rgb(252, 250, 239);
+    border: 2px solid rgb(252, 250, 239) !important;
     border-radius: 25px;
-    background-color: rgba(104, 60, 72, 0.7);
+    background-color: rgba(104, 60, 72, 0.7) !important;
     font-family: "Montserrat", sans-serif;
     font-size: 11px;
 }
@@ -1282,26 +1233,9 @@ button.open-invitation, button.open-invitation:hover, button.open-invitation:foc
     margin-bottom: 0;
     margin-top: 0;
 }
-section#cover:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url(cover.jpg)no-repeat;
-    background-size: cover;
-    opacity: 1;
-    background-position: center 100%;
+.hero-section div#kepada h3{
+	margin-bottom:40px
 }
-/* section#big-banner:before{ */
-    /* content: ""; */
-    /* display: block; */
-    /* position: absolute; */
-    /* width: 100%; */
-    /* height: 100%; */
-    /* /* z-index: -1; */ */
-    /* background: #354633; */
-/* } */
 section#big-banner .content-banner {
     width: 80%;
 }
@@ -1414,263 +1348,6 @@ section#event .cover-floral-right,section#kolomucapan .cover-floral-right {
     .section-content-couple .row > div.col-sm-6 {
         padding: 0 30px;
     }
-}
-
-@media(max-width:767px){
-    #cover .content-cover{
-        margin-top: 10px;
-    }
-    #cover #nama-catin {
-        font-size: 54pt;
-    }
-	h3.date-cover img {
-		height: 60px;
-	}
-	section#couple h2{font-size: 4.9vw !important}
-	h3.date-cover {
-		font-size: 13pt;
-        margin-bottom: 25px;
-	}
-    div#kepada{margin-top: 20px;}
-	#nama-catin span{
-		font-size: 60pt !important;
-	}
-	#nama-catin span.separator {
-		padding: 0;
-		font-size: 32pt !important;
-	}
-	
-	section#big-banner #nama-catin {
-		margin: 0 0 10px;
-		font-size: 30pt;
-	}
-	section#big-banner {
-        align-items: flex-start;
-        padding-top: 7vh;
-        background: url(slide-mobile2.jpg)no-repeat;
-        background-size:cover;
-        background-position: center;
-        /* height: 135vw; */
-    }
-img.bismillah {
-    height: 55px;
-    margin: 0 auto 50px;
-    display: block;
-}
-#big-banner #nama-catin span {
-    color: #fff;
-    font-size: 50pt !important;
-}
-#big-banner #nama-catin span {
-    color: #fff;
-    font-size: 20vw !important;
-}
-section#big-banner #nama-catin span.separator {
-    padding: 0;
-    font-size: 30pt !important;
-    right:24px;
-}
-section#opening h1.page-header {
-    font-weight: bold;
-    font-size: 23pt;
-    text-align: center;
-    margin-bottom: 7px;
-}
-.row.photo-gallery > div {
-    padding: 0 15px;
-}
-.row.text-opening {
-    padding: 0 30px;
-    margin-bottom: 40px;
-}
-.row.photo-gallery > div {
-    margin-bottom: 30px;
-}
-.block-surat {
-    border: 3px solid #416051;
-    background: rgba(255, 255, 255, 0.15);
-    text-align: center;
-    padding: 24px 35px;
-    border-radius: 24px;
-    margin-top: 10px;
-}
-.block-surat h4 {
-    font-size: 13pt;
-}
-.block-surat h4:before {
-    content: "";
-    display: block;
-    position: relative;
-    width: 55px;
-    height: 2px;
-    background: #b98a38;
-    margin: 0 10px 0 0px;
-}
-.block-surat h4:after {
-    content: "";
-    display: block;
-    position: relative;
-    width: 55px;
-    height: 2px;
-    background: #b98a38;
-    margin: 0 0px 0 10px;
-}
-section#opening {
-    padding: 50px 0 40px;
-    position: relative;
-}
-.block-surat p {
-    font-size: 12pt;
-    color: #416051;
-}
-.row.text-opening p {
-    font-size: 12pt;
-    color: #555;
-    text-align: center;
-}
-#cover .content-cover {
-    margin-top: 7vh;
-    padding: 0;
-}
-section#couple h1.page-header {
-    font-weight: normal;
-    color: #fff;
-    font-size: 29pt;
-}
-img.dan-image {
-    position: relative;
-    top: 0;
-    width: 70px;
-    margin: 60px 0 50px;
-    margin-left: -35px;
-}
-.keluarga-block {
-    margin-top: 12pt;
-    line-height: 1.2;
-    font-weight: normal;
-}
-.nama-lengakap-pengantin {
-    font-size: 28pt;
-    min-height: auto !important;
-	margin:16px 0 10px !important;
-}
-section#couple:before {
-    width: 210vw;
-    background: url(background-putih.png)no-repeat;
-    content: "";
-    height: 210vw;
-    position: absolute;
-    bottom: -120vw;
-    right: -90vw;
-    opacity: 0.06;
-    background-size: 100% 100%;
-}
-section#couple {
-    padding: 50px 0;
-}
-section#opening:before{display:none}
-section#event {
-    text-align: center;
-    position: relative;
-    padding: 30px 0 0;
-    overflow: hidden;
-}
-.list-event {
-    width: 100%;
-    padding: 0 0px 10px;
-}
-.list-event:first-child {
-    border-right: 0;
-    border-bottom: 3px solid #435e53;
-    padding-bottom: 30px;
-}
-.list-event h2 {
-    font-size: 32pt;
-    padding-top: 0;
-    margin-top: 0;
-}
-.list-event h3 {
-    margin: 25px 0 -5px;
-    font-weight: bold;
-    font-size: 16pt;
-}
-#event .btn-primary {
-    margin: 20px 0;
-    font-size: 11pt;
-}
-section#event:before{display:none}
-section#event p {
-    font-weight: 500;
-    margin-top: 15px;
-    font-size: 12pt;
-}
-section#countdown .page-header {
-    font-size: 24pt;
-    margin-bottom: 10px;
-}
-section#countdown {
-    padding: 50px 0;
-}
-p#demo {
-    font-size: 56pt;
-    font-weight: normal;
-}
-p#demo label{font-size:16pt;}
-section#countdown .btn{font-size: 11pt;}
-.parent-container a {
-    width: calc(50% - 8px);
-    margin-bottom: 16px;
-}
-section#kolomucapan {
-    padding: 40px 0;
-}
-.parent-container {
-    padding: 0 10px;
-    margin-bottom: 30px; 
-}
-.form-group {
-    margin-bottom: 20px;
-    font-size: 12pt;
-}
-form#formucapan button.btn.btn-primary {
-    position: relative;
-    width: 100%;
-    font-size: 11pt;
-}
-section#closing p {
-    font-size: 12pt;
-}
-div#block-comment{ font-size: 11pt;}
-#kolomucapan .section-content {
-    border: 3px solid #416051;
-    border-radius: 20px;
-    padding: 10px 10px;
-    width: calc(100% - 30px);
-    margin-left: 15px;
-}
-#formucapan h1.page-header {
-    text-align: center;
-    font-size: 25pt;
-    font-weight: normal;
-    margin-bottom: 30px;
-}
-section#closing {
-    background: url(footer.jpg)no-repeat;
-    background-size: 700px;
-    padding-bottom: 40vw;
-    background-position: center 100%;
-}
-#closing div#nama-catin {
-    margin-top: 50px;
-}
-section#cover:before {
-    background: url(cover-mobile.jpg)no-repeat;
-    background-size:cover;
-    background-position: 100% 100%;
-}
-form#formucapan {
-    padding: 30px 25px 5px;
-}
 }
 @media(min-width:1400px){
     #nama-catin {
