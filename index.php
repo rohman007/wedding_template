@@ -17,15 +17,10 @@ $nama_wanita = "Citra";
 $namalengkap_wanita = "Citra Ayu Anggreini";
 $bpk_wanita = "Ahmad Fatoni";
 $ibu_wanita = "Rokayah";
-// $tanggal = "06 . 03 . 2030";
 $tanggal = date_create($row['tgl_resepsi']);
 $tanggal = date_format($tanggal,"d . m . Y");
-// $tanggal_timer = "May 6, 2023";
 $tanggal_timer = date_create($row['tgl_resepsi']);
 $tanggal_timer = date_format($tanggal_timer,"M d, Y");
-$lokasi_akad = $row['lokasi_akad'];
-$tgl_akad = date_create($row['tgl_akad']);
-$tgl_akad = date_format($tgl_akad,"D, d M Y");
 
 $hari = array(
 	'Sun' => 'Minggu',
@@ -51,29 +46,33 @@ $bulan = array(
 	'Nov' => 'November',
 	'Dec' => 'Desember'
 );
+$countdown_akad = "10/01/2025";
+$lokasi_akad = "Kediaman Mempelai Wanita";
+$tgl_akad = "Sabtu, 10 Januari 2025";
+$jam_akad = "Pukul 11.00 - selesai";
+$alamat_akad = "Jl. Hasanuddin 1 No 1, Bandung";
+$link_akad = "#";
 
-$tgl_akad = strtr($tgl_akad, $hari);
-$tgl_akad = strtr($tgl_akad, $bulan);
-$jam_akad = $row['jam_akad'];
-$alamat_akad = $row['alamat_akad'];
-$link_akad = $row['link_akad'];
 
-$lokasi_resepsi = $row['lokasi_resepsi'];
-$tgl_resepsi = date_create($row['tgl_resepsi']);
-$tgl_resepsi = date_format($tgl_resepsi,"D, d M Y");
-$tgl_resepsi = strtr($tgl_resepsi, $hari);
-$tgl_resepsi = strtr($tgl_resepsi, $bulan);
-$jam_resepsi = $row['jam_resepsi'];
-$alamat_resepsi = $row['alamat_resepsi'];
-$link_resepsi = $row['link_resepsi'];
+$countdown_resepsi = "11/01/2025";
+$lokasi_resepsi = "Hotel Hilton<br/>Ballroom Amethys IIA";
+$tgl_resepsi = "Minggu, 11 Januari 2025";
+$jam_resepsi = "Pukul 11.00 - selesai";
+$alamat_resepsi = "Jl. Hasanuddin 1 No 1, Bandung";
+$link_resepsi = "#";
+
+$link_map ="https://maps.google.com";
+$link_live ="#";
 	
 
 
 
-// $history = array (
-//   array("16 Oktober 2022","Lamaran","Kami dipertemukan untuk pertama kalinya dalam suatu pertemuan keluarga dimana untuk mengikat suatu hubungan yang kami jalani untuk menuju kejenjang yang lebih serius"),
-//   array("06 Mei 2023","Menikah","Kami memutuskan untuk saling berkomitmen hingga akhirnya menikah dan saling menerima kekurangan satu sama lain sebagai sepasang suami istri"),
-// );
+$story = array (
+  array("story1.webp",'"First Sight"',"Pertemuan dimulai dari acara di kampus UI. Deta yang berasal dari Fakultas Ilmu keperawatan, dan Fandi berasal dari Fakultas Teknik. Keduanya dipertemukan dalam acara kepanitiaan Olimpiade UI 2019."),
+  array("story2.webp",'"Memorable Date"',"Setelah acara kepanitiaan selesai, hubungan keduanya hanya terjalin sebatas saling follow akun Instagram. Namun di tahun ini, Fandi mulai melakukan pendekatan dengan menghubungi Deta secara intens."),
+  array("story3.webp",'"Cute Relationship"',"Setelah lulus kuliah, percakapan via chat dari 2017 hingga 2019 berlangsung cukup intens, hingga akhirnya memutuskan untuk bersama berkomitmen di Bulan Januari 2021."),
+  array("story4.webp",'I said "Yes"',"Hingga pada akhirnya Fandi menyatakan dan memantapkan hatinya untuk menjalin hubungan yang lebih serius dan melamar Deta pada 10 Oktober 2022."),
+);
 
 ?>
 <head>
@@ -154,9 +153,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 		<button class="pause-song" onclick="pause()" type="button"><i class="glyphicon glyphicon-volume-up"></i></button>
 		<button class="play-song" onclick="play()" type="button"><i class="glyphicon glyphicon-volume-off"></i></button>
 	</div>
-	<section id="cover">
+	<section id="cover" class="cover-section">
 		<div class="position-absolute inset-0 w-100 h-100">
-			<video autoplay loop playsinline preload="metadata" class="object-fit-cover w-100 h-100" style="opacity: 1;">
+			<video autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;" id="cover-video">
 				<source src="images/cover-bg.mp4" type="video/mp4">
 			</video>
 		</div>
@@ -190,7 +189,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <li class="splide__slide">
 					<section id="cover" class="hero-section">
 						<div class="position-absolute inset-0 w-100 h-100">
-							<video autoplay loop playsinline preload="metadata" class="object-fit-cover w-100 h-100" style="opacity: 1;">
+							<video  autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;">
 								<source src="images/cover-bg.mp4" type="video/mp4">
 							</video>
 						</div>
@@ -221,7 +220,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <li class="splide__slide">
 					<section id="opening">
 						<div class="position-absolute inset-0 w-100 h-100">
-							<video autoplay loop playsinline preload="metadata" class="object-fit-cover w-100 h-100" style="opacity: 1;">
+							<video  autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;">
 								<source src="images/section2-bg.mp4" type="video/mp4">
 							</video>
 						</div>
@@ -240,7 +239,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <li class="splide__slide">
 					<section id="quran">
 						<div class="position-absolute inset-0 w-100 h-100">
-							<video autoplay loop playsinline preload="metadata" class="object-fit-cover w-100 h-100" style="opacity: 1;">
+							<video  autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;">
 								<source src="images/section3-bg.mp4" type="video/mp4">
 							</video>
 						</div>
@@ -308,94 +307,230 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="event">
-					  <div class="container">
-						<div class="section-content">
-						  <div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12">
-							  <p class="text-center text-event" >Dengan penuh rasa syukur dan disertai <br/>ridho dan rahmat Allah SWT <br/><span>kami bermaksud menyelenggarakan tasyakuran</span></p>
-							  <div class="content-event">
-								<div class="list-event" >
-									<h2>Akad Nikah</h2>
-									<p style="margin-top: 4px;justify-content: center;margin-bottom: 23px;"></p>
-									<p>
-										<?php echo $tgl_akad ?><br/>
-										<?php echo $jam_akad ?>
-									</p>
-									<h3>Lokasi</h3>
-									<p>
-										<?php echo $lokasi_akad ?><br/>
-										<?php echo $alamat_akad ?>
-									</p>
-									<a href="<?php echo $link_akad ?>" target="_blank" class="btn btn-primary" role="button" >
-									<i aria-hidden="true" class="glyphicon glyphicon-map-marker"></i> Google Map
-									</a>
+					<section id="event" class="h-100 d-flex align-items-center justify-content-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section5-bg.png" class="w-100 h-100 object-fit-cover ">
+						</div>
+						<div class="container">
+							<div class="section-content">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="content-event">
+									<div class="list-event" >
+										<h2 class="animatedRight animate__slower">Akad Nikah</h2>
+										<p class="animatedRight animate__slower">
+											<?php echo $tgl_akad ?><br/>
+											<?php echo $jam_akad ?>
+										</p>
+										<p class="mt-3 mb-4 animatedRight animate__slower">
+											<?php echo $lokasi_akad ?><br/>
+											<?php echo $alamat_akad ?>
+										</p>
+										<div id="timer-akad" class="countdown animate__slower animatedZoom"></div>
+										<a href="<?php echo $link_akad ?>" class="btn btn-primary animate__slower animatedUp" >Add to Calendar</a>
+									</div>
 								</div>
-								<div class="list-event" >
-									<h2>Resepsi</h2>
-									<p>
-										<?php echo $tgl_resepsi ?><br/>
-										<?php echo $jam_resepsi ?>
-									</p>
-									<h3>Lokasi</h3>
-									<p>
-										<?php echo $lokasi_resepsi ?><br/>
-										<?php echo $alamat_resepsi ?>
-									</p>
-									<a href="<?php echo $link_resepsi ?>" target="_blank" class="btn btn-primary" role="button" >
-									<i aria-hidden="true" class="glyphicon glyphicon-map-marker"></i> Google Map
-									</a>
 								</div>
-							  </div>
 							</div>
-						  </div>
-						</div>
-					  </div>
-					</section>
-				</li>
-                <li class="splide__slide">
-					<section id="countdown">
-						<div class="container">
-							<h1 class="page-header"  >Menuju Hari Bahagia</h1>
-							<p id="demo"></p>
-							<a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+Cintya+%26+Ekky&details=%3Cp%3ETerima+Kasih+telah+membarikan+doa+dan+restu+dalam+acara+pernikahan+kami%3C/p%3E&dates=20231202T100000I/20231202T170000I" target="_blank" class="btn btn-primary" role="button">
-							<i aria-hidden="true" class="glyphicon glyphicon-calendar"></i> Simpan Tanggal
-							</a>
+							</div>
 						</div>
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="gallery" class="divider ">
+					<section id="event" class="h-100 d-flex align-items-center justify-content-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section6-bg.jpg" class="w-100 h-100 object-fit-cover ">
+						</div>
 						<div class="container">
+							<div class="section-content">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="content-event">
+									<div class="list-event mt-1" >
+										<h2 class="animatedZoom animate__slower">Resepsi</h2>
+										<p class="animatedZoom animate__slower">
+											<?php echo $tgl_resepsi ?><br/>
+											<?php echo $jam_resepsi ?>
+										</p>
+										<p class="mt-3 mb-4 animatedZoom animate__slower">
+											<?php echo $lokasi_resepsi ?><br/>
+											<?php echo $alamat_resepsi ?>
+										</p>
+										<div id="timer-resepsi" class="countdown animate__slower animatedUp"></div>
+										<a href="<?php echo $link_resepsi ?>" class="btn btn-primary animate__slower animatedUp" >Add to Calendar</a>
+									</div>
+								</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</section>
+				</li>
+                <li class="splide__slide ">
+					<section id="lokasi" class="h-100 d-flex align-items-center justify-content-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section7-bg.jpg" class="w-100 h-100 object-fit-cover ">
+						</div>
+						<div class="container position-relative">
+							<div class="row">
+								<div class="col-12">
+									<div class="list-event mt-1 text-center">
+										<h2 class="animatedDown animate__slower">Lokasi Acara</h2>
+										<p class="animatedDown animate__slower">
+											<?php echo $alamat_resepsi ?>
+										</p>
+										<div class="embed-block animatedZoom animate__slower">
+											<iframe width="820" height="560" id="gmap_canvas" src="https://maps.google.com/maps?q=3JGP%2B4F%20Cibangkong%2C%20Bandung%20City%2C%20West%20Java&z=18&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+										</div>
+										<a href="<?php echo $link_map ?>" class="btn btn-primary mt-4 animate__slower animatedUp" >Petunjuk Lokasi</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+				</li>
+                <li class="splide__slide ">
+					<section id="live" class="h-100 d-flex align-items-center justify-content-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section8-bg.jpg" class="w-100 h-100 object-fit-cover ">
+						</div>
+						<div class="container position-relative">
+							<div class="row">
+								<div class="col-12">
+									<div class="list-event mt-1 text-center">
+										<h2 class="animatedDown animate__slower mb-4">Lokasi Acara</h2>
+										<p class="animatedDown animate__slower  w-75 mx-auto">
+										Saksikan acara pernikahan kami secara virtual yang InshaAllah akan disiarkan langsung melalui akun instagram atau silahkan join melalui zoom berikut ini:
+										</p>
+										<div class="animatedUp animate__slower">
+										<a href="<?php echo $link_live?>" class="btn btn-primary mt-3 mb-2 animate__slower animatedZoom" >Join Live Streaming</a>
+										<p>
+											Instagram: @rifgiajaah<br/>
+											Zoom Meeting ID: 745413<br/>
+											Password: RifgiTika<br/>
+										</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+				</li>
+                <li class="splide__slide ">
+					<section id="gallery" class="h-100 d-flex align-items-center justify-content-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section9-bg.jpg" class="w-100 h-100 object-fit-cover ">
+						</div>
+						<div class="container position-relative">
 							<div class="row">
 								<div class="col-sm-12">
 									<h1 class="page-title" >Galeri Foto</h1>
-									<div class="parent-container">
-										<a class="test-popup-link"  href="foto/gallery1.webp"><img src="foto/gallery1.webp"></a>
-										<a class="test-popup-link"  href="foto/gallery2.webp"><img src="foto/gallery2.webp"></a>
-										<a class="test-popup-link"  href="foto/gallery3.webp"><img src="foto/gallery3.webp"></a>
-										<a class="test-popup-link"  href="foto/gallery4.webp"><img src="foto/gallery4.webp"></a>
-										<a class="test-popup-link"  href="foto/gallery5.webp"><img src="foto/gallery5.webp"></a>
-										<a class="test-popup-link"  href="foto/gallery6.webp"><img src="foto/gallery6.webp"></a>
+									<div class="foto-wrapper d-flex justify-content-center">
+										<div class="small-photo animatedLeft animate__slower">
+											<a class="test-popup-link"  href="foto/gallery1.webp"><img src="foto/gallery1.webp"></a>
+											<a class="test-popup-link"  href="foto/gallery2.webp"><img src="foto/gallery2.webp"></a>
+										</div>
+										<div class="single ms-2 animatedRight animate__slower">
+											<a class="test-popup-link"  href="foto/gallery3.webp"><img src="foto/gallery3.webp"></a>
+										</div>
 									</div>
-									
-									<div class="iframe-video" >
-										<iframe width="560" height="315" src="https://www.youtube.com/embed/IgASxoB58QU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<div class="foto-wrapper d-flex justify-content-center">
+										<div class="single me-2 animatedZoom animate__slower">
+											<a class="test-popup-link"  href="foto/gallery4.webp"><img src="foto/gallery4.webp"></a>
+										</div>
+										<div class="small-photo">
+											<a class="test-popup-link animatedZoom animate__slower"  href="foto/gallery5.webp"><img src="foto/gallery5.webp"></a>
+											<a class="test-popup-link animatedZoom animate__slower"  href="foto/gallery6.webp"><img src="foto/gallery6.webp"></a>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</section>
 				</li>
-                <li class="splide__slide">
+                <li class="splide__slide ">
+					<section id="gallery" class="h-100 d-flex align-items-center justify-content-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section10-bg.jpg" class="w-100 h-100 object-fit-cover ">
+						</div>
+						<div class="container position-relative">
+							<div class="row">
+								<div class="col-sm-12 px-4">
+									<h1 class="page-title animatedDown animate__slower" >Our Video</h1>
+									<div class="embed-block animatedZoom animate__slower">
+										<iframe width="560" height="315" src="https://www.youtube.com/embed/IgASxoB58QU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</div>
+									<div class="w-75 mx-auto mt-4 text-center animatedUp animate__slower">
+									Jika melangkah tingkat tertinggi beruntunglah yang tetap bertahan dan menjadikan cinta hanya ujian dan kesabaran sebagai penjaganya.
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</li>
+				
+                <li class="splide__slide ">
+					<section id="story" class="h-100 d-flex align-items-center justify-content-center">
+						<div class="position-absolute inset-0 w-100 h-100 top-0">
+							<img src="images/section11-bg.jpg" class="w-100 h-100 object-fit-cover ">
+						</div>
+						<div class="container position-relative">
+							<div class="row">
+								<div class="col-sm-12 px-4">
+									<h1 class="page-title animatedUp animate__slower" >Kisah Cinta</h1>
+									<div class="w-75 mx-auto mt-4 text-center animatedZoom animate__slower">
+										<p>I love you today, tomorrow, forever.<br/>
+										I love you the most. I'm wearing<br/>
+										the smile you gave me.</p>
+										<p>
+										The best things in life are<br/>
+										better with you. </p>
+									</div>
+									<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp" onclick="togglestory()">Lihat perjalanan cinta kami</button>
+								</div>
+							</div>
+						</div>
+						<div id="story-wrapper" class="story-wrapper position-absolute w-100 h-100 d-none">
+							<div class="close-story"></div>
+							<button type="button" class="mfp-close" onclick="togglestory()">×</button>
+							<div class="splide splide-story">
+								<div class="splide__track">
+								<ul class="splide__list">
+									<?php
+										$count = count($story);
+
+										foreach ($story as $index => $item) {
+											$navigation = '';
+											// Tentukan teks navigasi
+											if ($index == 0) {
+												$navigation = 'Geser >>';
+											} elseif ($index == $count - 1) {
+												$navigation = '<< Geser';
+											} else {
+												$navigation = '<< Geser >>';
+											}
+
+											echo '
+											<li class="splide__slide">
+												<img src="images/'.$item[0].'">
+												<div class="title-story">'.$item[1].'</div>
+												<div class="desc-story">'.$item[2].'</div>
+												<div class="swipe">'.$navigation.'</div>
+											</li>
+											';
+										}
+									?>
+								</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+				</li>
+                <li class="splide__slide ">
 					<section id="kolomucapan" class="divider overflow-visible">
 					  <div class="container pb-100">
-						<div class="parent-container">
-							<a class="test-popup-link "  href="foto/foto3.png"><img src="foto/foto3.png"></a>
-							<a class="test-popup-link "  href="foto/foto4.png"><img src="foto/foto4.png"></a>
-							<a class="test-popup-link "  href="foto/foto5.png"><img src="foto/foto5.png"></a>
-							<a class="test-popup-link "  href="foto/foto6.png"><img src="foto/foto6.png"></a>
-						</div>
 						<div class="row" data-margin-top="-154px"> 
 							<div class="section-content"  >
 								<div class="">
@@ -444,7 +579,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 									<div class="icon-box iconbox-bg bg-dark-transparent iconbox-theme-colored text-center text-white pt-0 pl-0 pr-0">
 										<div id="block-comment" >
 										<?php
-										$sql=mysqli_query($conn,"SELECT * FROM komentar WHERE id_wedding = $id_wedding ORDER BY id DESC") or die(mysqli_error($conn));
+										$sql=mysqli_query($conn,"SELECT * FROM komentar WHERE id_wedding = $id_wedding ORDER BY id_wedding DESC") or die(mysqli_error($conn));
 											
 										while ($row=$sql->fetch_array()){
 										$hadir = $row['kehadiran'];
@@ -470,8 +605,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 						</div>
 						
 					</section>
-					</li>
-                <li class="splide__slide">
+				</li>
+                <li class="splide__slide ">
 					<section id="closing">
 						<div class="container">
 							<div class="row">
@@ -494,7 +629,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </div>
     </div>
 
-    <div class="pagination-container ">
+    <div class="pagination-container d-none ">
         <div class="splide" id="pagination-slider">
             <div class="splide__track">
                 <ul class="splide__list">
@@ -534,22 +669,17 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
             pagination: false // Matikan pagination bawaan
         }).mount();
 
-		var manualScroll = false; // Menyimpan status scroll manual
-
-		// Mendengarkan peristiwa scroll
-		window.addEventListener('scroll', function() {
-		  manualScroll = true; // Mengatur status scroll manual menjadi true
-		  splide.options.autoplay = false; // Menonaktifkan autoplay setelah scroll manual
-		});
-
-		// Mendengarkan peristiwa setelah slide berpindah
-		splide.on('moved', function() {
-		  // Jika tidak ada scroll manual, maka autoplay diaktifkan kembali
-		  if (!manualScroll) {
-			splide.options.autoplay = true;
-		  }
-		  manualScroll = false; // Mengatur status scroll manual menjadi false setelah slide berpindah
-		});
+		new Splide('.splide-story', {
+			type: false,
+			autoplay: false,
+			interval: 3000,
+            height: '100vh', // Tinggi slider
+            arrows: false, // Matikan panah navigasi
+			pauseOnHover: false,
+            pagination: false // Matikan pagination bawaan
+		}).mount();
+		
+		
 		
         var paginationSplide = new Splide('#pagination-slider', {
             direction: 'ltr', // Horizontal (Left to Right)
@@ -621,8 +751,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 	var myaudio = document.getElementById("background-music");
 	
 	function play() { 
-		return myaudio.play(); 
+		// return myaudio.play(); 
 	};
+
 	
 	function pause() { 
 		return myaudio.pause(); 
@@ -631,7 +762,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 	$(function() {
 		$('.open-invitation').on('click', function(){
 			$('body').addClass('active');
-			$('#cover').addClass('active');
+			$('.cover-section').addClass('active');
 		});
 		$('#song-button').on('click', function(){
 			$('#song-button').toggleClass('active');
@@ -640,25 +771,25 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 	
 	// Fullscreen
 	// document.addEventListener("DOMContentLoaded", function() {
-		// var fullscreenBtn = document.getElementById("fullscreenBtn");
-		// var content = document.getElementById("fullpage");
+	// 	var fullscreenBtn = document.getElementById("fullscreenBtn");
+	// 	var content = document.getElementById("fullpage");
 
-		// fullscreenBtn.addEventListener("click", function() {
-			// if (content.requestFullscreen) {
-			// content.requestFullscreen();
-			// } else if (content.mozRequestFullScreen) { /* Firefox */
-			// content.mozRequestFullScreen();
-			// } else if (content.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-			// content.webkitRequestFullscreen();
-			// } else if (content.msRequestFullscreen) { /* IE/Edge */
-			// content.msRequestFullscreen();
-			// }
-		// });
+	// 	fullscreenBtn.addEventListener("click", function() {
+	// 		if (content.requestFullscreen) {
+	// 		content.requestFullscreen();
+	// 		} else if (content.mozRequestFullScreen) { /* Firefox */
+	// 		content.mozRequestFullScreen();
+	// 		} else if (content.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+	// 		content.webkitRequestFullscreen();
+	// 		} else if (content.msRequestFullscreen) { /* IE/Edge */
+	// 		content.msRequestFullscreen();
+	// 		}
+	// 	});
 	// });
 	
 	
 	// Set the date we're counting down to
-	var countDownDate = new Date("<?php echo $tanggal_timer; ?>").getTime();
+	var countDownDate = new Date("<?php echo $countdown_resepsi; ?>").getTime();
 
 	// Update the count down every 1 second
 	var x = setInterval(function() {
@@ -675,20 +806,55 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-	  // Display the result in the element with id="demo"
-	  document.getElementById("demo").innerHTML = "<span>" + days + "<label>Hari</label></span><span>" + hours + "<label>Jam</label></span><span>" + minutes + "<label>Menit</label></span>";
+	  // Display the result in the element with id="timer-resepsi"
+	  document.getElementById("timer-resepsi").innerHTML = "<span>" + days + "<label>Hari</label></span><span>" + hours + "<label>Jam</label></span><span>" + minutes + "<label>Menit</label></span><span>" + seconds + "<label>Detik</label></span>";
 
 	  // If the count down is finished, write some text
 	  if (distance < 0) {
 		clearInterval(x);
-		document.getElementById("demo").innerHTML = "<span>0<label>Day(s)</label></span><span>0<label>Hour(s)</label></span><span>0<label>Minute(s)</label></span>";
+		document.getElementById("timer-resepsi").innerHTML = "<span>0<label>Hari</label></span><span>0<label>Jam</label></span><span>0<label>Menit</label></span><span>0<label>Detik</label></span>";
+	  }
+	}, 1000);
+
+	
+	
+	// Set the date we're counting down to
+	var countDownDate = new Date("<?php echo $countdown_akad; ?>").getTime();
+
+	// Update the count down every 1 second
+	var x = setInterval(function() {
+
+	  // Get today's date and time
+	  var now = new Date().getTime();
+
+	  // Find the distance between now and the count down date
+	  var distance = countDownDate - now;
+
+	  // Time calculations for days, hours, minutes and seconds
+	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	  // Display the result in the element with id="timer-akad"
+	  document.getElementById("timer-akad").innerHTML = "<span>" + days + "<label>Hari</label></span><span>" + hours + "<label>Jam</label></span><span>" + minutes + "<label>Menit</label></span><span>" + seconds + "<label>Detik</label></span>";
+
+	  // If the count down is finished, write some text
+	  if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("timer-akad").innerHTML = "<span>0<label>Hari</label></span><span>0<label>Jam</label></span><span>0<label>Menit</label></span><span>0<label>Detik</label></span>";
 	  }
 	}, 1000);
 	
 	
+	function togglestory() {
+		var element = document.getElementById("story-wrapper");
+		element.classList.toggle("d-none");
+		element.classList.toggle("d-block");
+	}
 
 	$(document).ready(function() {
-		$('.parent-container').magnificPopup({
+		$('.foto-wrapper').magnificPopup({
 		  delegate: 'a', // child items selector, by clicking on it popup will open
 		  type: 'image',
 		  gallery:{enabled:true}
@@ -724,6 +890,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		const animatedDown = document.querySelectorAll('.animatedDown');
 		const animatedRight = document.querySelectorAll('.animatedRight');
 		const animatedLeft = document.querySelectorAll('.animatedLeft');
+		const animatedZoom = document.querySelectorAll('.animatedZoom');
 
 		const observerUp = new IntersectionObserver(entries => {
 		  entries.forEach(entry => {
@@ -794,6 +961,24 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		// Mengamati setiap elemen dengan kelas 'animatedLeft'
 		animatedLeft.forEach(box => {
 		  observerLeft.observe(box);
+		});
+
+
+		const observerZoom = new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+			if (entry.intersectionRatio > 0) {
+			// Ketika elemen muncul di layar
+			entry.target.classList.add('animate__animated', 'animate__zoomIn'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+			} else {
+			// Ketika elemen tidak lagi terlihat
+			entry.target.classList.remove('animate__animated', 'animate__zoomIn');
+			}
+		});
+		});
+
+		// Mengamati setiap elemen dengan kelas 'animatedZoom'
+		animatedZoom.forEach(box => {
+			observerZoom.observe(box);
 		});
 	  });
 </script>
