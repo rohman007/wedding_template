@@ -205,13 +205,6 @@ div#wrapper {
     margin: 0 auto;
 	position:relative;
 }
-#vertical-slider.splide {
-  height: calc(100vh - 60px) !important; /* Set tinggi slider sesuai keinginan Anda */
-}
-
-#vertical-slider .splide__slide {
-  height: 100%; /* Sesuaikan tinggi setiap slide dengan tinggi slider */
-}
 .pagination-container {
 	overflow-x: auto;
 	white-space: nowrap;

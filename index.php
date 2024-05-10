@@ -987,16 +987,24 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 <script>
 
      document.addEventListener('DOMContentLoaded', function () {
+		
         var splide = new Splide('#vertical-slider', {
             type: false,
 			interval : 5000, // Atur interval (dalam milidetik)
 			speed : 1000, // Atur kecepatan geser slide (dalam milidetik)
             direction: 'ttb', // Vertikal (Top to Bottom)
-            height: '100vh', // Tinggi slider
+            height: '100%', // Tinggi slider
             autoHeight: false, // Matikan penyesuaian tinggi otomatis
             arrows: false, // Matikan panah navigasi
             pagination: false // Matikan pagination bawaan
         }).mount();
+		
+		window.addEventListener('resize', function() {
+			var windowHeight = window.innerHeight;
+			var sliderHeight = windowHeight; // 60px dari 100vh
+			document.getElementById('vertical-slider').style.height = 'calc(' + sliderHeight + 'px - 60px)';
+			document.getElementById('wrapper').style.height = 'calc(' + sliderHeight + 'px - 0px)';
+		});
 
 		new Splide('.splide-story', {
 			type: false,
