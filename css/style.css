@@ -46,8 +46,8 @@ body {
     overflow: hidden;
     line-height: 1.2;
     color: rgb(104, 60, 72);
-    text-align: center;
-    font-size: 15px;
+    font-size: 14px;
+	font-weight:500;
 	background:#faf9f7;
 }
 body:before {
@@ -86,6 +86,7 @@ body.active{
     position: relative;
     font-size: 15px;
     padding: 0 10px;
+	color:#111;
     font-weight: 500;
 }
 
@@ -204,10 +205,13 @@ div#wrapper {
     margin: 0 auto;
 	position:relative;
 }
-#vertical-slider {
-	height: 100vh;
+#vertical-slider.splide {
+  height: calc(100vh - 60px) !important; /* Set tinggi slider sesuai keinginan Anda */
 }
 
+#vertical-slider .splide__slide {
+  height: 100%; /* Sesuaikan tinggi setiap slide dengan tinggi slider */
+}
 .pagination-container {
 	overflow-x: auto;
 	white-space: nowrap;
@@ -236,7 +240,9 @@ div#wrapper {
 .container{
 	max-width:100%
 }
-span.kehadiran.hadir {background:#72cc9f}
+span.kehadiran.hadir {
+    background: rgb(6, 185, 11);
+}
 .title-comment b{
 	margin-right: 8px;
 }
@@ -246,12 +252,28 @@ span.kehadiran.hadir {background:#72cc9f}
     align-items: center;
 }
 span.kehadiran {
-    background: #999;
+    background: rgb(112, 112, 112);
     border-radius: 50px;
-    font-size: 12px;
+    font-size: 10px;
     vertical-align: middle;
     color: #fff;
     padding: 2px 12px 1px;
+}
+.initial {
+    width: 35px;
+    height: 35px;
+    background: #fa8a02;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	text-transform:uppercase;
+    color: #fff;
+    font-weight: 600;
+}
+.list-comment:nth-child(2n) .initial{
+	background:#7d57c1;
 }
 span.check-icon {
     position: relative;
@@ -310,17 +332,29 @@ div#song-button button {
     justify-content: center;
     outline: none;
     background: rgb(168 186 200 / 30%);
+	padding:0
 }
 div#song-button {
-    position: fixed;
-    bottom: 15px;
+    position: absolute;
+    bottom: 75px;
     right: 15px;
-    width: 45px;
+    width: 42px;
     height: 45px;
     border-radius: 50%;
     z-index: 9;
     overflow: hidden;
     border: 0;
+}
+div#song-button svg {
+    background: rgb(255, 0, 0);
+    width: 33px;
+    height: 33px;
+    color: #fff;
+    fill: #fff;
+    padding: 4px;
+    border-radius: 50px;
+    border: 4px solid #fff;
+    display: block;
 }
 .pause-song{display:flex !important}
 .active > .pause-song{display:none !important}
@@ -329,6 +363,29 @@ div#song-button {
 #nama-catin{}
 section#cover.active {
     margin-top: -100vh;
+}
+div#pagination-slider {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 14px 40px;
+    background: #fff;
+    color: rgb(196, 153, 165);
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+}
+div#pagination-slider svg {
+    width: 20px;
+    height: 15px;
+    margin-bottom: 5px;
+    fill: rgb(196, 153, 165);
+}
+div#pagination-slider .is-active svg{
+	fill:rgb(104, 60, 72);
+}
+div#pagination-slider .is-active{
+	color:rgb(104, 60, 72);
 }
 section#cover {
     position: absolute;
@@ -404,13 +461,16 @@ h1.page-header {
     font-size: 33pt;
 	border:0;
 }
-h1.page-title {
+.page-title {
     color: rgb(104, 60, 72);
     font-family: Gautreaux;
     font-size: 32px;
     text-align: center;
     font-weight: 500;
     margin-bottom: 30px;
+}
+h2.page-title{
+	font-size:28px;
 }
 img{max-width:100%}
 
@@ -760,15 +820,14 @@ button.mfp-close {
 
 
 .form-control {
-    border-radius: 0;
-    padding: 15px 20px;
+    padding: 5px 11px;
     height: auto;
-    border: 0;
-    background: #eaeaea;
-    border: 0;
+    background: #fff;
     box-shadow: none;
-	font-size:12pt;
-    color: #416051;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid rgb(70, 43, 57);
+    background-color: rgba(243, 235, 224, 0.5);
 }
 section#kolomucapan {
 	position:relative;
@@ -789,18 +848,16 @@ section#closing {
     font-weight: normal;
     margin-bottom: 40px;
 }
-.form-group {
-    margin-bottom: 20px;
-    font-size: 14pt;
-}
 div#block-comment {
     margin-top: 10px;
-    text-align: left;
-    max-height: 620px;
+    max-height: 50vh;
     width: 100%;
-    margin-bottom: 0px;
+    font-family: "Montserrat", sans-serif;
     overflow-y: auto;
-    font-size: 14pt;
+}
+div#form-comment {
+    background: rgba(0, 0, 0, .6);
+	z-index:2;
 }
 footer#footer p {
     margin: 0;
@@ -822,9 +879,10 @@ ul#history-list {
     padding: 30px 60px;
 }
 .list-comment {
-    border: 3px solid #416051;
-    padding: 20px 25px;
-    margin-bottom: 25px;
+    border-bottom: 1px solid rgb(234, 234, 234);
+    padding: 15px 0px;
+    margin-bottom: 0;
+	font-size:13px;
 }
 .content-comment p:last-child {
     margin: 0;
@@ -881,129 +939,219 @@ div#story-wrapper img {
     position: absolute;
 }
 
+div#initial-name {
+	font-size: 16pt;
+	line-height: 1;
+	margin-bottom: 5px;
+}
+div#initial-name span:last-child {
+	position: relative;
+	border: 0;
+	padding: 0;
+}
 
-@media(min-width:0px){
-	div#initial-name {
-		font-size: 16pt;
-		line-height: 1;
-		margin-bottom: 5px;
-	}
-	div#initial-name span:last-child {
-		position: relative;
-		border: 0;
-		padding: 0;
-	}
-
-	div#initial-name span {
-		border-right: 1px solid;
-		padding-right: 10px;
-	}
-	/* #demo span{width:100px !important;height:100px !important;margin:10px 10px  !important} */
-	#demo{flex-wrap:wrap}
-	.content-cover {
-		margin-bottom: 0px;
-	}
-	.content-event {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
-	section#couple h2 {
-		font-weight: bold;
-		font-size: 16pt;
-	}
-	.footer-top > div {
-		padding: 0;
-	}
-	form#formucapan {
-		padding: 30px 25px 35px;
-		background: rgba(255, 255, 255, 0.15);
-		width: 100%;
-		margin: 0 auto;
-		border-radius: 15px;
-	}
-	form#formucapan button.btn.btn-primary {
-		position: relative;
-	}
-	form#formucapan button.btn.btn-primary i {
-		margin-right: 10px;
-	}
-	.content-cover h2 {
-		font-weight: 600;
-		font-size: 11pt;
-		text-transform: uppercase;
-		margin-top: 5px;
-		letter-spacing: 2px;
-	}
-	img.title-floral {
-		width: 67px;
-		margin-bottom: 30px;
-		position: relative;
-		left: -3px;
-	}
-	#big-banner #block-cover:before{
-		height: calc(100% + 200px);
-		opacity:0.4;
-		top: -100px;
-	}
-	#big-banner .content-cover h2 {font-weight: 400 !important;}
-	#big-banner #nama-catin {
-	}
-	/* span.separator {font-size: 22pt;} */
-	.section-content-couple .row > div {
-		margin-bottom: 0px;
-		margin-top: 10px;
-	}
-	section#kolomucapan.divider h2 {font-size:32pt;}
-	section.divider h2 {
-		font-size: 28pt;
-	}
-	.section-content {
-		clear: both;
-	}
-	div#block-comment {
-		padding: 0px 22px 2px;
-	}
-	section#couple .container,section#history .container,#kolomucapan .container {z-index:1;position:relative}
-	.icon-history i:before {
-		width: 100%;
-		display: block;
-		text-align: center;
-		font-size: 15pt;
-		left: -1px;
-		position: relative;
-	}
-	.parent-container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		margin-bottom: 60px;
-	}
-	.parent-container a {
-		display: block;
-		width: calc(25% - 20px);
-		overflow: hidden;
-		position: relative;
-		margin: 0 0px 20px;
-	}
-	.parent-container img {
-		position: relative;
-		max-width: 100%;
-		top: 0;
-		width: 100%;
-		height: auto !important;
-	}
-
-	.divider {
-		position: relative;
-		padding: 40px 0 40px;
-	}
-	section#kolomucapan {
-		padding: 90px 0 ;
-	}
-	section#kolomucapan h1.page-title {
-		margin-bottom: 20px;
-	}
+div#initial-name span {
+	border-right: 1px solid;
+	padding-right: 10px;
+}
+/* #demo span{width:100px !important;height:100px !important;margin:10px 10px  !important} */
+#demo{flex-wrap:wrap}
+.content-cover {
+	margin-bottom: 0px;
+}
+.content-event {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+section#couple h2 {
+	font-weight: bold;
+	font-size: 16pt;
+}
+.footer-top > div {
+	padding: 0;
+}
+form#formucapan {
+	padding: 30px 30px 35px;
+	background: #fff;
+	position:relative;
+	width: 85%;
+	margin: 0 auto;
+	border-radius: 15px;
+}
+button.close-form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    opacity: 0;
+}
+form#formucapan button.btn.btn-primary {
+	position: relative;
+	border: 0 !important;
+}
+.form-group {
+    margin-bottom: 16px;
+}
+form#formucapan button.btn.btn-primary i {
+	margin-right: 10px;
+}
+.content-cover h2 {
+	font-weight: 600;
+	font-size: 11pt;
+	text-transform: uppercase;
+	margin-top: 5px;
+	letter-spacing: 2px;
+}
+img.title-floral {
+	width: 67px;
+	margin-bottom: 30px;
+	position: relative;
+	left: -3px;
+}
+#big-banner #block-cover:before{
+	height: calc(100% + 200px);
+	opacity:0.4;
+	top: -100px;
+}
+#big-banner .content-cover h2 {font-weight: 400 !important;}
+#big-banner #nama-catin {
+}
+.section-content-couple .row > div {
+	margin-bottom: 0px;
+	margin-top: 10px;
+}
+section#kolomucapan.divider h2 {font-size:32pt;}
+section.divider h2 {
+	font-size: 28pt;
+}
+.section-content {
+	clear: both;
+}
+div#block-comment {
+	padding: 0px 10px;
+}
+section#couple .container,section#history .container,#kolomucapan .container {z-index:1;position:relative}
+.icon-history i:before {
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 15pt;
+	left: -1px;
+	position: relative;
+}
+.parent-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 60px;
+}
+.parent-container a {
+	display: block;
+	width: calc(25% - 20px);
+	overflow: hidden;
+	position: relative;
+	margin: 0 0px 20px;
+}
+.parent-container img {
+	position: relative;
+	max-width: 100%;
+	top: 0;
+	width: 100%;
+	height: auto !important;
+}
+section#kado button {
+    min-width: 160px;
+}
+.modal-kado button.close-button {
+    min-width: auto !important;
+    border: 0;
+    background: transparent;
+    font-size: 29pt;
+    line-height: 1;
+    position: absolute;
+    right: 6px;
+    top: 5px;
+}
+.wrapper-kado button {
+    min-width: 80px;
+    border: 0 !important;
+    margin-bottom: 14px;
+}
+.wrapper-kado {
+    background: #fff;
+    border: 4px solid rgb(192, 192, 192);
+    width: 75%;
+    padding: 30px 10px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 1rem;
+}
+img.qrcode {
+    width: 100px;
+}
+img.bank-image {
+    height: 30px;
+    margin-bottom: 12px;
+}
+.bank-number {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 1px;
+}
+.wrapper-kado h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 17pt;
+}
+.modal-kado {
+    background: rgba(0, 0, 0, .6);
+    z-index: 2;
+}
+img.img-protokol {
+    width: 80%;
+    margin-bottom: 15px;
+}
+img.img-contact {
+    width: 120px;
+    margin-bottom: 30px;
+}
+.contactname {
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(56, 33, 39);
+}
+section#thankyou div#nama-catin {
+    font-size: 23pt;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+img.separator-img {
+    height: 24px;
+    margin-bottom: 27px;
+}
+section#thankyou svg {
+    height: 20px;
+    margin-bottom: 20px;
+}
+section#thankyou {
+    font-size: 15px;
+}
+section#thankyou .text-xs{
+    font-size: 12px;
+}
+section#kolomucapan {
+	padding: 90px 0 ;
+}
+section#kolomucapan h1.page-title {
+	margin-bottom: 20px;
+}
+#formucapan h2 {
+    color: rgb(70, 43, 57);
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 section#closing p {
     font-size: 15pt;
