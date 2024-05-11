@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <?php
 require 'config.php';
 
-$id_wedding = 1;
-             
 $photo_pria = "man.png";
 $photo_wanita = "woman.png";
 $inisial_pria = "R";
@@ -17,10 +15,6 @@ $nama_wanita = "Citra";
 $namalengkap_wanita = "Citra Ayu Anggreini";
 $bpk_wanita = "Ahmad Fatoni";
 $ibu_wanita = "Rokayah";
-$tanggal = date_create($row['tgl_resepsi']);
-$tanggal = date_format($tanggal,"d . m . Y");
-$tanggal_timer = date_create($row['tgl_resepsi']);
-$tanggal_timer = date_format($tanggal_timer,"M d, Y");
 
 $hari = array(
 	'Sun' => 'Minggu',
@@ -89,16 +83,14 @@ $rundown = array (
 <!-- Meta Tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <meta name="description" content="Undangan Pernikahan <?php echo $nama_wanita ?> & <?php echo $nama_pria ?>" />
-<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 <meta name="author" content="SelembarDaun" />
 
 <!-- Page Title -->
 <title><?php echo $nama_wanita; ?> & <?php echo $nama_pria; ?></title>
 
 <!-- Favicon and Touch Icons -->
-<link href="<?php echo  $hostname ?>assets/images/favicon.png" rel="shortcut icon" type="image/png">
+<link href="images/favicon.png" rel="shortcut icon" type="image/png">
 
 <!-- Google Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,13 +98,8 @@ $rundown = array (
 <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 <!-- Stylesheet -->
-<link href="
-https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
-" rel="stylesheet">
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+<link href="css/splide.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/animate.min.css" />
 <link rel="stylesheet" href="css/magnific-popup.css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/style.css?v=<?php echo rand() ?>" rel="stylesheet" type="text/css">
@@ -121,12 +108,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 <script src="js/jquery-2.2.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+
 </head>
 <body id="fullpage" oncontextmenu="return false;">
 <div class="loading-screen" id="loading-screen">
@@ -138,9 +120,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 </div>
 <!--Music-->
 <audio id="background-music" autoplay loop> 
-	<source src="https://be.satu.love/musics/music_1677558595587kq9sr6o.mp3"  type="audio/mp3"> 
+	<source src="music.mp3"  type="audio/mp3"> 
 </audio>
-<div id="wrapper" class="clearfix content vh-100">
+<div id="wrapper" class="clearfix content">
 <div>
 	<div id="song-button" >
 		<button class="pause-song" onclick="pause()" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.719 104.978" class="w-4 h-4"><path d="M66.829 66.763a43.6 43.6 0 0 0 5.847-19.2 26.8 26.8 0 0 0-2.827-13.317c-3.319-6.8-9.021-10.62-14.529-14.311-4.111-2.754-8-5.354-10.741-9.069l-.491-.659c-1.623-2.181-3.457-4.652-3.747-6.727A4.083 4.083 0 0 0 36.059.007a4.027 4.027 0 0 0-3.755 4.022v71.957a23.362 23.362 0 0 0-12.116-3.312c-11.129 0-20.19 7.244-20.19 16.152s9.061 16.152 20.19 16.152 20.19-7.244 20.19-16.152V41.759a29.068 29.068 0 0 1 18.72 22.007 22.771 22.771 0 0 1-1.559 2.2 4.034 4.034 0 0 0 6.057 5.33 30.021 30.021 0 0 0 2.964-4.167 2.542 2.542 0 0 0 .266-.371Z"></path></svg></button>
@@ -181,7 +163,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <div class="splide__track">
             <ul class="splide__list">
                 <li class="splide__slide">
-					<section id="cover" class="hero-section">
+					<section id="cover" class="hero-section h-100 section">
 						<div class="position-absolute inset-0 w-100 h-100">
 							<video  autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;">
 								<source src="images/cover-bg.mp4" type="video/mp4">
@@ -212,9 +194,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="opening">
+					<section id="opening" class=" section">
 						<div class="position-absolute inset-0 w-100 h-100">
-							<video  autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;">
+							<video  muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;" id="autoplayVideo">
 								<source src="images/section2-bg.mp4" type="video/mp4">
 							</video>
 						</div>
@@ -231,7 +213,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="quran">
+					<section id="quran" class=" section">
 						<div class="position-absolute inset-0 w-100 h-100">
 							<video  autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;">
 								<source src="images/section3-bg.mp4" type="video/mp4">
@@ -250,7 +232,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="couple" class="h-100 d-flex align-items-center">
+					<section id="couple" class="h-100 d-flex align-items-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section4-bg.png" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -301,7 +283,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="event" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="event" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section5-bg.png" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -331,7 +313,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide">
-					<section id="event" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="event" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section6-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -361,7 +343,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="lokasi" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="lokasi" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section7-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -385,7 +367,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="live" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="live" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section8-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -413,7 +395,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="gallery" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="gallery" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section9-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -445,7 +427,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="gallery" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="gallery" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section10-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -466,7 +448,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 				</li>
 				
                 <li class="splide__slide ">
-					<section id="story" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="story" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section11-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -482,48 +464,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 										The best things in life are<br/>
 										better with you. </p>
 									</div>
-									<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp" onclick="togglestory()">Lihat perjalanan cinta kami</button>
-								</div>
-							</div>
-						</div>
-						<div id="story-wrapper" class="story-wrapper position-absolute w-100 h-100 d-none text-center">
-							<div class="close-story"></div>
-							<button type="button" class="mfp-close" onclick="togglestory()">×</button>
-							<div class="splide splide-story">
-								<div class="splide__track">
-								<ul class="splide__list">
-									<?php
-										$count = count($story);
-
-										foreach ($story as $index => $item) {
-											$navigation = '';
-											// Tentukan teks navigasi
-											if ($index == 0) {
-												$navigation = 'Geser >>';
-											} elseif ($index == $count - 1) {
-												$navigation = '<< Geser';
-											} else {
-												$navigation = '<< Geser >>';
-											}
-
-											echo '
-											<li class="splide__slide">
-												<img src="images/'.$item[0].'">
-												<div class="title-story">'.$item[1].'</div>
-												<div class="desc-story">'.$item[2].'</div>
-												<div class="swipe">'.$navigation.'</div>
-											</li>
-											';
-										}
-									?>
-								</ul>
+									<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp toggleAutoplay" onclick="togglestory()">Lihat perjalanan cinta kami</button>
 								</div>
 							</div>
 						</div>
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="extra-section" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="extra-section" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section12-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -544,7 +492,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="rundown" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="rundown" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section13-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -570,7 +518,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="doa" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="doa" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section14-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -578,7 +526,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 							<div class="row">
 								<div class="col-sm-12 px-4">
 									<h2 class="page-title animatedDown animate__slower mb-4 pb-2" >Doa untuk<br/>Pengantin</h2>
-									<div class="w-50 mx-auto mt-3 mb-0 text-center animatedZoom animate__slower fw-semibold">
+									<div class="w-75 px-4 mx-auto mt-3 mb-0 text-center animatedZoom animate__slower fw-semibold">
 										<p class="mb-4">"Semoga Allah</br>
 										memberkahi di waktu bahagia
 										dan memberkahimu di waktu
@@ -594,7 +542,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="kolomucapan" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="kolomucapan" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section15-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -604,157 +552,37 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 									<h2 class="page-title animatedDown animate__slower mb-4 pb-2">Kirim Ucapan</h2>
 									<div class="comment-list">
 										<div id="block-comment" class="animatedZoom animate__slower">
-											<?php
-												$sql=mysqli_query($conn,"SELECT * FROM komentar WHERE id_wedding = $id_wedding ORDER BY id_wedding DESC") or die(mysqli_error($conn));
-													
-												function initial($nama) {
-													// Memisahkan teks menjadi array kata-kata
-													$kata_kata = explode(' ', trim($nama));
-													
-													// Mengambil dua kata pertama
-													$kata_pertama = isset($kata_kata[0]) ? $kata_kata[0] : '';
-													$kata_kedua = isset($kata_kata[1]) ? $kata_kata[1] : '';
-													
-													// Mengambil karakter pertama dari masing-masing kata
-													$karakter_pertama1 = substr($kata_pertama, 0, 1);
-													$karakter_pertama2 = substr($kata_kedua, 0, 1);
-													
-													return $karakter_pertama1 . $karakter_pertama2;
-												}
-												
-												while ($row=$sql->fetch_array()){
-												$hadir = $row['kehadiran'];
-												if($hadir=="hadir"){
-													$hadir = "<span class='kehadiran hadir'><span class='check-icon'></span> Hadir</span>";
-												}else{
-													$hadir = "<span class='kehadiran'><span class='close-icon'></span> Tidak Hadir</span>";
-												}
-												
-												$nama = $row['nama'];
-
-											?>
-												<div class="list-comment d-flex align-items-center ">
-													<div class="initial"><?php echo initial($nama); ?></div>
-													<div>
-														<div class="title-comment"><b><?php echo $row['nama'];?></b><?php echo $hadir ;?></div>
-														<div class="content-comment"><p><?php echo $row['isi_komentar'];?></p></div>
-													</div>
-												</div>
-											<?php } ?>
+											<div id="commentsContainer"></div>
 										</div>
-										<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp w-100 py-2 rounded-2" onclick="togglecomment()">Kirim Ucapan + RSVP</button>
+										<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp w-100 py-2 rounded-2 toggleAutoplay" onclick="togglecomment()">Kirim Ucapan + RSVP</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div id="form-comment" class="d-none position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
-							<button type="button" class="close-form" onclick="togglecomment()"></button>
-							<form id="formucapan" class="form-transparent form-text-white animate__animated" method="post" action="pro_tambah_komentar.php" enctype="multipart/form-data">
-							  <div class="row">
-								<div class="col-sm-12">
-									<h2>Kirim Ucapan</h2>
-									<div class="form-group">
-										<input type="text" placeholder="Nama" id="form_name" name="nama" required class="form-control">
-									</div>
-									<div class="form-group">
-										<input type="text" placeholder="No WhatsApp" id="form_wa" name="no_wa" required class="form-control">
-									</div>
-									<div class="form-group">
-										<select name="kehadiran" class="form-control" required>
-											<option value="">Pilih Kehadiran</option>
-											<option value="hadir">Hadir</option>
-											<option value="tidak hadir">Tidak Hadir</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<select name="qty" class="form-control" required>
-											<option value="">Jumlah Tamu</option>
-											<option value="1">1 orang</option>
-											<option value="2">2 orang</option>
-											<option value="3">3 orang</option>
-											<option value="4">4 orang</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<textarea id="form_message" name="isi_komentar" class="form-control required" rows="2" placeholder="Pesan"></textarea>
-									</div>
-								</div>
-								<input type="hidden" id="id_wedding" name="id_wedding" value="<?php echo $id_wedding;?>">
-								<?php 
-									if(isset($_GET['to'])){
-										echo '<input type="hidden" id="to" name="to" value="'.$_GET['to'].'">';
-									} else{}
-								?>
-								<div class="col-sm-12 text-center">
-								  <div class="form-group mb-0">
-									<input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-									<button type="submit" name="submit" class="btn btn-primary w-100 py-2 rounded-2">Kirim</button>
-								  </div>
-								</div>
-							  </div>
-							</form>
-						</div>
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="kado" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="kado" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section16-bg.webp" class="w-100 h-100 object-fit-cover ">
 						</div>
 						<div class="container position-relative">
 							<div class="row">
-								<div class="col-sm-12 px-4 text-center">
+								<div class="col-sm-12 px-2 px-sm-4  text-center">
 									<h2 class="page-title animatedDown animate__slower mb-4" >Kirim Hadiah</h2>
 									<div class="w-75 mx-auto px-4 mb-0 text-center animatedZoom animate__slower">
 										<p>Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. </p>
 										<p>Namun jika Anda ingin memberikan  hadiah kami sediakan fitur berikut:</p>
 									</div>
-									<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp py-2" onclick="toggleangpao()">Kirim Angpao</button><br/>
-									<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp py-2" onclick="togglekado()">Kirim Kado</button>
-								</div>
-							</div>
-						</div>
-						<div id="kado-data" class="modal-kado d-none  position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
-							<button type="button" class="close-form" onclick="togglekado()"></button>
-							<div class="wrapper-kado animate__animated" id="kado-wrapper">
-								<button type="button" class="close-button" onclick="togglekado()">×</button>
-								<h3 class="mb-4">Kirim Kado</h3>
-								<div class="">Kirimkan kado ke alamat:</div>
-								<div class="list-alamat mt-4" id="">
-									<div id="alamat-copy">
-										<p class="mb-1">Ramadhan Arya</p>
-										<p class="mb-1">Alamat: Jl. Hasanuddin 1 No 1</p>
-										<p>Bandung 44303</p>
-									</div>
-									<button class="btn btn-primary mt-3 py-2" onclick="copyAlamat()">Copy</button>
-								</div>
-							</div>
-						</div>
-						
-						<div id="angpao-data" class="modal-kado d-none  position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
-							<button type="button" class="close-form" onclick="toggleangpao()"></button>
-							<div class="wrapper-kado animate__animated" id="angpao-wrapper">
-								<button type="button" class="close-button" onclick="toggleangpao()">×</button>
-								<h3>Kirim Angpao</h3>
-								<img src="images/qrcode.webp" class="qrcode mt-4 mb-4">
-								<div class="list-bank mt-4">
-									<img src="images/mandiri.png" class="bank-image">
-									<div class="bank-number" id="bank1">1234 56678 9900</div>
-									<div class="bank-name">Ramadhan Arya</div>
-									<button class="btn btn-primary mt-3 py-2" onclick="copyBank1()">Copy</button>
-								</div>
-								<div class="list-bank mt-4">
-									<img src="images/bni.png" class="bank-image">
-									<div class="bank-number" id="bank2">1234 56678 9900</div>
-									<div class="bank-name">Citra Ayu Anggreini</div>
-									<button class="btn btn-primary mt-3 py-2" onclick="copyBank2()">Copy</button>
+									<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp py-2 toggleAutoplay" onclick="toggleangpao()">Kirim Angpao</button><br/>
+									<button type="button" class="btn btn-primary mt-3 animate__slower animatedUp py-2 toggleAutoplay" onclick="togglekado()">Kirim Kado</button>
 								</div>
 							</div>
 						</div>
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="protokol" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="protokol" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section17-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -789,7 +617,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="contact" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="contact" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100 top-0">
 							<img src="images/section18-bg.jpg" class="w-100 h-100 object-fit-cover ">
 						</div>
@@ -816,7 +644,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 					</section>
 				</li>
                 <li class="splide__slide ">
-					<section id="thankyou" class="h-100 d-flex align-items-center justify-content-center">
+					<section id="thankyou" class="h-100 d-flex align-items-center justify-content-center section">
 						<div class="position-absolute inset-0 w-100 h-100">
 							<video autoplay="true" muted="muted" loop playsinline preload="metadata" class="object-fit-cover w-100 h-100 autoplay-video" style="opacity: 1;" id="cover-video">
 								<source src="images/section19-bg.mp4" type="video/mp4">
@@ -848,6 +676,125 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             </ul>
         </div>
     </div>
+	
+	<div id="kado-data" class="modal-kado d-none  position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
+		<button type="button" class="close-form toggleAutoplay" onclick="togglekado()"></button>
+		<div class="wrapper-kado animate__animated" id="kado-wrapper">
+			<button type="button" class="close-button toggleAutoplay" onclick="togglekado()">×</button>
+			<h3 class="mb-4">Kirim Kado</h3>
+			<div class="">Kirimkan kado ke alamat:</div>
+			<div class="list-alamat mt-4" id="">
+				<div id="alamat-copy">
+					<p class="mb-1">Ramadhan Arya</p>
+					<p class="mb-1">Alamat: Jl. Hasanuddin 1 No 1</p>
+					<p>Bandung 44303</p>
+				</div>
+				<button class="btn btn-primary mt-3 py-2" onclick="copyAlamat()">Copy</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id="angpao-data" class="modal-kado d-none  position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
+		<button type="button" class="close-form toggleAutoplay" onclick="toggleangpao()"></button>
+		<div class="wrapper-kado animate__animated" id="angpao-wrapper">
+			<button type="button" class="close-button toggleAutoplay" onclick="toggleangpao()">×</button>
+			<h3>Kirim Angpao</h3>
+			<img src="images/qrcode.webp" class="qrcode mt-4 mb-4">
+			<div class="list-bank mt-4">
+				<img src="images/mandiri.png" class="bank-image">
+				<div class="bank-number" id="bank1">1234 56678 9900</div>
+				<div class="bank-name">Ramadhan Arya</div>
+				<button class="btn btn-primary mt-3 py-2" onclick="copyBank1()">Copy</button>
+			</div>
+			<div class="list-bank mt-4">
+				<img src="images/bni.png" class="bank-image">
+				<div class="bank-number" id="bank2">1234 56678 9900</div>
+				<div class="bank-name">Citra Ayu Anggreini</div>
+				<button class="btn btn-primary mt-3 py-2" onclick="copyBank2()">Copy</button>
+			</div>
+		</div>
+	</div>
+	<div id="form-comment" class="d-none position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center">
+		<button type="button" class="close-form toggleAutoplay" onclick="togglecomment()"></button>
+		<div id="formucapan" class="form-transparent form-text-white animate__animated" >
+			<div class="row">
+			<div class="col-sm-12">
+				<h2>Kirim Ucapan</h2>
+				<div class="form-group">
+					<input type="text" placeholder="Nama" id="form_name" name="nama" required class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="No WhatsApp" id="form_wa" name="no_wa" required class="form-control">
+				</div>
+				<div class="form-group">
+					<select name="kehadiran" class="form-control" id="kehadiran" required>
+						<option value="">Pilih Kehadiran</option>
+						<option value="hadir">Hadir</option>
+						<option value="tidak hadir">Tidak Hadir</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select name="qty" class="form-control" id="qty-input">
+						<option value="">Jumlah Tamu</option>
+						<option value="1">1 orang</option>
+						<option value="2">2 orang</option>
+						<option value="3">3 orang</option>
+						<option value="4">4 orang</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<textarea id="form_message" name="isi_komentar" class="form-control required" rows="2" placeholder="Pesan"></textarea>
+				</div>
+			</div>
+			<input type="hidden" id="id_wedding" name="id_wedding" value="<?php echo $id_wedding;?>">
+			<?php 
+				if(isset($_GET['to'])){
+					echo '<input type="hidden" id="to" name="to" value="'.$_GET['to'].'">';
+				} else{}
+			?>
+			<div class="col-sm-12 text-center">
+				<div class="form-group mb-0">
+				<input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+				<button type="submit" class="btn btn-primary w-100 py-2 rounded-2" id="submitButton">Kirim</button>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div id="story-wrapper" class="story-wrapper position-absolute w-100 h-100 d-none text-center">
+		<div class="close-story toggleAutoplay"></div>
+		<button type="button" class="mfp-close toggleAutoplay" onclick="togglestory()">×</button>
+		<div class="splide splide-story">
+			<div class="splide__track">
+			<ul class="splide__list">
+				<?php
+					$count = count($story);
+
+					foreach ($story as $index => $item) {
+						$navigation = '';
+						// Tentukan teks navigasi
+						if ($index == 0) {
+							$navigation = 'Geser >>';
+						} elseif ($index == $count - 1) {
+							$navigation = '<< Geser';
+						} else {
+							$navigation = '<< Geser >>';
+						}
+
+						echo '
+						<li class="splide__slide">
+							<img src="images/'.$item[0].'">
+							<div class="title-story">'.$item[1].'</div>
+							<div class="desc-story">'.$item[2].'</div>
+							<div class="swipe">'.$navigation.'</div>
+						</li>
+						';
+					}
+				?>
+			</ul>
+			</div>
+		</div>
+	</div>
 
 	<!-- Horizontal Slider with 3 Columns and Centered -->
 	<div id="pagination-slider" class="splide">
@@ -904,20 +851,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 				<div class="text-menu">Acara</div>
 			</li>
 			<li class="splide__slide" data-splide-y="6">
-				<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve"  ><g><g><g><path d="M492,352c11.046,0,20-8.954,20-20V120c0-44.112-35.888-80-80-80h-26V20c0-11.046-8.954-20-20-20
-				c-11.046,0-20,8.954-20,20v20h-91V20c0-11.046-8.954-20-20-20s-20,8.954-20,20v20h-90V20c0-11.046-8.954-20-20-20
-				s-20,8.954-20,20v20H80C35.888,40,0,75.888,0,120v312c0,44.112,35.888,80,80,80h352c44.112,0,80-35.888,80-80
-				c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20c0,22.056-17.944,40-40,40H80c-22.056,0-40-17.944-40-40V120
-				c0-22.056,17.944-40,40-40h25v20c0,11.046,8.954,20,20,20s20-8.954,20-20V80h90v20c0,11.046,8.954,20,20,20
-				c11.046,0,20-8.954,20-20V80h91v20c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20V80h26c22.056,0,40,17.944,40,40v212
-				C472,343.046,480.954,352,492,352z"></path><path d="M314.5,192c-23.583,0-43.533,8.339-57.5,23.765C243.033,200.339,223.083,192,199.5,192
-				c-44.906,0-77.5,34.173-77.5,81.256c0,49.211,41.248,80.083,77.639,107.32c16.642,12.456,32.36,24.22,41.759,35.938
-				C245.194,421.246,250.934,424,257,424c6.066,0,11.806-2.754,15.601-7.486c9.4-11.718,25.117-23.483,41.759-35.938
-				c36.392-27.237,77.64-58.109,77.64-107.32C392,226.173,359.406,192,314.5,192z M290.393,348.552
-				c-11.899,8.906-23.379,17.498-33.393,26.599c-10.014-9.101-21.495-17.694-33.393-26.599C193.319,325.883,162,302.443,162,273.256
-				C162,248.58,177.07,232,199.5,232c14.483,0,24.659,4.867,31.107,14.877c5.203,8.079,6.345,16.788,6.46,17.776
-				c0.654,10.454,9.26,18.441,19.746,18.546c10.515,0.1,19.312-8.158,20.127-18.648c0.007-0.081,0.932-8.542,5.865-16.728
-				C289.221,237.176,299.589,232,314.5,232c22.43,0,37.5,16.58,37.5,41.256C352,302.442,320.681,325.883,290.393,348.552z"></path></g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+				<svg id="Capa_1" enable-background="new 0 0 512.238 512.238" height="512" viewBox="0 0 512.238 512.238" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m368.591 48.319c-47.025 0-86.044 24.885-112.467 64.414-76.278-120.422-255.754-58.088-256 79.122-5.252 137.595 157.239 240.661 251.257 271.295 3.079 1.026 6.408 1.026 9.486 0 94.634-30.982 256.349-133.676 251.254-271.299.003-79.143-64.386-143.532-143.53-143.532zm-224.934 30c62.128 0 92.689 56.66 98.54 70.904 4.957 12.493 22.9 12.488 27.854 0 5.851-14.243 36.412-70.904 98.54-70.904 58.207 0 106.315 44.033 112.785 100.536-27.157 7.016-43.002 30.131-64.585 30.131-25.448 0-42.883-32.133-80.334-32.133-37.436 0-54.886 32.133-80.333 32.133s-42.897-32.133-80.333-32.133c-37.451 0-54.886 32.133-80.334 32.133-21.583 0-37.427-23.115-64.585-30.131 6.47-56.503 54.578-100.536 112.785-100.536zm224.366 296.053c-48.245 33.771-96.826 53.057-111.898 58.62-15.072-5.563-63.653-24.848-111.898-58.62-11.594-8.116-22.342-16.503-32.254-25.121 26.702-7.245 42.434-29.932 63.819-29.932 25.443 0 42.903 32.133 80.333 32.133s54.89-32.133 80.333-32.133c21.385 0 37.117 22.687 63.819 29.932-9.913 8.618-20.66 17.005-32.254 25.121zm63.608-56.413c-4.773 2.137-9.639 3.494-14.84 3.494-25.448 0-42.883-32.133-80.334-32.133-37.436 0-54.886 32.133-80.333 32.133s-42.897-32.133-80.333-32.133c-37.451 0-54.886 32.133-80.334 32.133-5.201 0-10.067-1.357-14.84-3.494-19.685-22.873-44.139-58.892-49.443-107.064 18.116 8.631 35.147 28.091 64.283 28.091 37.451 0 54.886-32.133 80.334-32.133 25.443 0 42.903 32.133 80.333 32.133s54.89-32.133 80.333-32.133c25.448 0 42.883 32.133 80.334 32.133 29.136 0 46.167-19.46 64.283-28.091-5.303 48.172-29.758 84.191-49.443 107.064z"></path></svg>
 				<div class="text-menu">Map</div>
 			</li>
 			<li class="splide__slide" data-splide-y="7">
@@ -925,15 +859,15 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 				<div class="text-menu">Live Streaming</div>
 			</li>
 			<li class="splide__slide" data-splide-y="8">
-				<svg id="Capa_1" enable-background="new 0 0 512.419 512.419" height="512" viewBox="0 0 512.419 512.419" width="512" xmlns="http://www.w3.org/2000/svg"  ><g><path d="m105.945 256.206c0 82.74 67.314 150.055 150.055 150.055s150.055-67.314 150.055-150.055-67.315-150.055-150.055-150.055-150.055 67.315-150.055 150.055zm170.032-90.453c2.957 8.279 5.442 17.557 7.443 27.553h-54.84c2.002-9.996 4.487-19.274 7.443-27.553 7.701-21.564 16.34-29.601 19.977-29.601s12.276 8.036 19.977 29.601zm100.078 90.453c0 11.404-1.599 22.441-4.583 32.9h-53.636c.913-10.675 1.394-21.693 1.394-32.9s-.481-22.226-1.394-32.9h53.636c2.984 10.459 4.583 21.496 4.583 32.9zm-86.826 0c0 11.284-.516 22.314-1.498 32.9h-63.461c-.982-10.586-1.498-21.616-1.498-32.9 0-11.285.516-22.315 1.498-32.9h63.461c.982 10.585 1.498 21.616 1.498 32.9zm-33.229 120.055c-3.637 0-12.276-8.037-19.977-29.601-2.957-8.28-5.442-17.558-7.443-27.554h54.84c-2.002 9.996-4.487 19.274-7.443 27.554-7.701 21.564-16.34 29.601-19.977 29.601zm-120.055-120.055c0-11.404 1.599-22.441 4.583-32.9h53.636c-.913 10.675-1.394 21.693-1.394 32.9s.481 22.225 1.394 32.9h-53.636c-2.984-10.459-4.583-21.496-4.583-32.9zm76.33-111.81c-1.544 3.455-3.05 7.195-4.505 11.267-4.006 11.219-7.254 23.933-9.7 37.643h-44.286c13.602-22.022 34.113-39.343 58.491-48.91zm-58.49 174.71h44.286c2.446 13.71 5.693 26.424 9.7 37.643 1.454 4.073 2.961 7.812 4.505 11.267-24.379-9.566-44.89-26.888-58.491-48.91zm145.94 48.91c1.544-3.455 3.05-7.195 4.505-11.267 4.006-11.219 7.254-23.933 9.7-37.643h44.286c-13.602 22.022-34.113 39.344-58.491 48.91zm58.49-174.71h-44.286c-2.446-13.709-5.693-26.424-9.7-37.643-1.454-4.073-2.961-7.812-4.505-11.267 24.379 9.567 44.89 26.888 58.491 48.91z"></path><path d="m512.418 73.037c0-27.216-22.142-49.357-49.357-49.357-9.219 0-18.152 2.583-25.851 7.32-7.699-4.737-16.631-7.32-25.851-7.32-27.215 0-49.357 22.142-49.357 49.357-.578 31.074 30.95 59.895 75.208 86.511 6.196-3.712 12.028-7.404 17.492-11.081 17.904 32.94 27.298 69.802 27.298 107.739 0 60.367-23.508 117.121-66.194 159.806-42.686 42.686-99.439 66.194-159.806 66.194-33.642.426-67.746-8.396-98.463-21.96.035-.088-11.123 27.553-11.23 27.819 34.113 15.059 71.722 24.444 109.693 24.141 68.38 0 132.667-26.628 181.02-74.981 48.352-48.351 74.98-112.639 74.98-181.019 0-44.488-11.398-87.687-33.109-126.003 22.102-19.084 33.668-37.934 33.527-57.166zm-120.415 0c0-10.674 8.684-19.357 19.357-19.357 10.445-1.104 19.87 12.956 25.851 19.508 6.636-7.046 14.278-19.903 25.851-19.508 10.673 0 19.357 8.684 19.357 19.357 0 16.822-23.018 36.197-45.208 50.964-22.19-14.768-45.208-34.142-45.208-50.964z"></path><path d="m101.269 364.504c-9.219 0-18.152 2.583-25.851 7.32-5.321-3.274-11.233-5.518-17.42-6.592-18.351-33.267-27.998-70.67-27.998-109.026 0-60.367 23.508-117.12 66.194-159.806s99.439-66.194 159.806-66.194c29.386 0 57.965 5.552 84.942 16.501l11.282-27.798c-30.577-12.41-62.952-18.703-96.224-18.703-68.38 0-132.667 26.629-181.02 74.98-48.351 48.353-74.98 112.64-74.98 181.02 0 39.799 9.171 78.704 26.7 113.937-15.73 8.261-26.489 24.753-26.489 43.719-.578 31.074 30.95 59.895 75.208 86.511 49.042-29.381 75.42-57.51 75.208-86.511-.001-27.216-22.143-49.358-49.358-49.358zm-25.85 100.322c-22.19-14.768-45.208-34.142-45.208-50.964 0-10.674 8.684-19.357 19.357-19.357 10.445-1.104 19.87 12.956 25.851 19.508 6.636-7.046 14.278-19.903 25.851-19.508 10.673 0 19.357 8.684 19.357 19.357-.001 16.822-23.018 36.197-45.208 50.964z"></path></g></svg>
+				<svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"  ><g><path d="m467 151h-81.729l-17.562-35.125c-7.673-15.343-23.096-24.875-40.25-24.875h-142.918c-17.154 0-32.577 9.531-40.25 24.875l-17.561 35.125h-36.73v-15c0-8.284-6.716-15-15-15s-15 6.716-15 15v15h-15c-24.813 0-45 20.187-45 45v271c0 24.813 20.187 45 45 45h422c24.813 0 45-20.187 45-45v-271c0-24.813-20.187-45-45-45zm15 316c0 8.271-6.729 15-15 15h-422c-8.271 0-15-6.729-15-15v-271c0-8.271 6.729-15 15-15h91c5.682 0 10.875-3.21 13.417-8.292l21.708-43.416c2.558-5.115 7.699-8.292 13.417-8.292h142.918c5.718 0 10.859 3.177 13.417 8.292l21.708 43.417c2.54 5.081 7.733 8.291 13.415 8.291h91c8.271 0 15 6.729 15 15z"></path><circle cx="75" cy="226" r="15"></circle><path d="m256 181c-74.439 0-135 60.561-135 135 0 74.991 60.561 136 135 136s135-61.009 135-136c0-74.439-60.56-135-135-135zm0 241c-57.897 0-105-47.552-105-106 0-57.897 47.103-105 105-105s105 47.103 105 105c0 58.449-47.103 106-105 106z"></path><path d="m286.01 271.009c-12.917 0-22.8 4.866-30 11.274-7.2-6.407-17.083-11.274-30-11.274-25.233 0-45 18.968-45 43.182 0 25.505 21.218 41.003 50.584 62.452 4.927 3.599 10.022 7.321 15.416 11.366 2.667 2 5.833 3 9 3s6.333-1 9-3c5.394-4.045 10.489-7.767 15.416-11.366 29.366-21.449 50.584-36.947 50.584-62.452 0-24.214-19.766-43.182-45-43.182zm-23.278 81.409c-2.202 1.608-4.437 3.24-6.721 4.918-2.285-1.678-4.52-3.31-6.721-4.918-22.223-16.231-38.279-27.959-38.279-38.227 0-6.551 5.152-13.182 15-13.182 10.901 0 15.137 10.494 15.737 12.15 1.868 6.29 7.555 10.451 14.124 10.538 6.578.061 12.416-4.334 14.426-10.616.039-.121 3.999-12.072 15.714-12.072 9.848 0 15 6.631 15 13.182-.002 10.267-16.058 21.995-38.28 38.227z"></path><path d="m271 46v-31c0-8.284-6.716-15-15-15s-15 6.716-15 15v31c0 8.284 6.716 15 15 15s15-6.716 15-15z"></path><path d="m176.431 56.779c5.953-5.761 6.109-15.257.348-21.21l-30-31c-5.761-5.953-15.257-6.109-21.21-.348s-6.109 15.257-.348 21.21l30 31c5.763 5.955 15.259 6.108 21.21.348z"></path><path d="m356.779 56.432 30-31c5.761-5.953 5.605-15.449-.348-21.21-5.952-5.761-15.449-5.605-21.21.348l-30 31c-5.761 5.953-5.605 15.449.348 21.21 5.965 5.773 15.462 5.591 21.21-.348z"></path><path d="m437 211h-31c-8.284 0-15 6.716-15 15s6.716 15 15 15h31c8.284 0 15-6.716 15-15s-6.716-15-15-15z"></path></g></svg>
 				<div class="text-menu">Galeri</div>
 			</li>
 			<li class="splide__slide" data-splide-y="9">
-				<svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"  ><g><path d="m467 151h-81.729l-17.562-35.125c-7.673-15.343-23.096-24.875-40.25-24.875h-142.918c-17.154 0-32.577 9.531-40.25 24.875l-17.561 35.125h-36.73v-15c0-8.284-6.716-15-15-15s-15 6.716-15 15v15h-15c-24.813 0-45 20.187-45 45v271c0 24.813 20.187 45 45 45h422c24.813 0 45-20.187 45-45v-271c0-24.813-20.187-45-45-45zm15 316c0 8.271-6.729 15-15 15h-422c-8.271 0-15-6.729-15-15v-271c0-8.271 6.729-15 15-15h91c5.682 0 10.875-3.21 13.417-8.292l21.708-43.416c2.558-5.115 7.699-8.292 13.417-8.292h142.918c5.718 0 10.859 3.177 13.417 8.292l21.708 43.417c2.54 5.081 7.733 8.291 13.415 8.291h91c8.271 0 15 6.729 15 15z"></path><circle cx="75" cy="226" r="15"></circle><path d="m256 181c-74.439 0-135 60.561-135 135 0 74.991 60.561 136 135 136s135-61.009 135-136c0-74.439-60.56-135-135-135zm0 241c-57.897 0-105-47.552-105-106 0-57.897 47.103-105 105-105s105 47.103 105 105c0 58.449-47.103 106-105 106z"></path><path d="m286.01 271.009c-12.917 0-22.8 4.866-30 11.274-7.2-6.407-17.083-11.274-30-11.274-25.233 0-45 18.968-45 43.182 0 25.505 21.218 41.003 50.584 62.452 4.927 3.599 10.022 7.321 15.416 11.366 2.667 2 5.833 3 9 3s6.333-1 9-3c5.394-4.045 10.489-7.767 15.416-11.366 29.366-21.449 50.584-36.947 50.584-62.452 0-24.214-19.766-43.182-45-43.182zm-23.278 81.409c-2.202 1.608-4.437 3.24-6.721 4.918-2.285-1.678-4.52-3.31-6.721-4.918-22.223-16.231-38.279-27.959-38.279-38.227 0-6.551 5.152-13.182 15-13.182 10.901 0 15.137 10.494 15.737 12.15 1.868 6.29 7.555 10.451 14.124 10.538 6.578.061 12.416-4.334 14.426-10.616.039-.121 3.999-12.072 15.714-12.072 9.848 0 15 6.631 15 13.182-.002 10.267-16.058 21.995-38.28 38.227z"></path><path d="m271 46v-31c0-8.284-6.716-15-15-15s-15 6.716-15 15v31c0 8.284 6.716 15 15 15s15-6.716 15-15z"></path><path d="m176.431 56.779c5.953-5.761 6.109-15.257.348-21.21l-30-31c-5.761-5.953-15.257-6.109-21.21-.348s-6.109 15.257-.348 21.21l30 31c5.763 5.955 15.259 6.108 21.21.348z"></path><path d="m356.779 56.432 30-31c5.761-5.953 5.605-15.449-.348-21.21-5.952-5.761-15.449-5.605-21.21.348l-30 31c-5.761 5.953-5.605 15.449.348 21.21 5.965 5.773 15.462 5.591 21.21-.348z"></path><path d="m437 211h-31c-8.284 0-15 6.716-15 15s6.716 15 15 15h31c8.284 0 15-6.716 15-15s-6.716-15-15-15z"></path></g></svg>
+				<svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" ><g><path d="m477 0h-442c-19.299 0-35 15.701-35 35v442c0 19.299 15.701 35 35 35h442c19.299 0 35-15.701 35-35 0-8.554 0-432.631 0-442 0-19.299-15.701-35-35-35zm-284.2 422.82v59.18h-66.4v-59.18zm30 0h66.4v59.18h-66.4zm96.4 0h66.4v59.18h-66.4zm-289.2-30v-273.64h452v273.64zm289.2-303.64v-59.18h66.4v59.18zm-30 0h-66.4v-59.18h66.4zm-96.4 0h-66.4v-59.18h66.4zm289.2-54.18v54.18h-66.4v-59.18h61.4c2.757 0 5 2.243 5 5zm-452 0c0-2.757 2.243-5 5-5h61.4v59.18h-66.4zm0 442v-54.18h66.4v59.18h-61.4c-2.757 0-5-2.243-5-5zm452 0c0 2.757-2.243 5-5 5h-61.4v-59.18h66.4z"></path><path d="m304.904 158.833c-18.284-.495-36.039 6.538-48.904 19.878-12.075-12.521-28.89-19.901-47.167-19.901-49.934 0-76.224 58.374-44.562 96.149l76.309 91.035c8.046 9.598 22.806 9.584 30.839 0l76.31-91.036h.001c31.384-37.444 5.806-94.857-42.826-96.125zm19.834 76.854-68.738 82.003-68.737-82.002c-15.419-18.393-2.855-46.877 21.57-46.877 14.796 0 27.822 8.908 33.188 22.694 2.243 5.763 7.794 9.559 13.979 9.559s11.735-3.796 13.979-9.559c5.57-14.309 19.244-23.094 34.142-22.682 23.553.613 35.951 28.572 20.617 46.864z"></path></g></svg>
 				<div class="text-menu">Video</div>
 			</li>
 			<li class="splide__slide" data-splide-y="10">
-				<svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"  ><g><path d="m477 0h-442c-19.299 0-35 15.701-35 35v442c0 19.299 15.701 35 35 35h442c19.299 0 35-15.701 35-35 0-8.554 0-432.631 0-442 0-19.299-15.701-35-35-35zm-284.2 422.82v59.18h-66.4v-59.18zm30 0h66.4v59.18h-66.4zm96.4 0h66.4v59.18h-66.4zm-289.2-30v-273.64h452v273.64zm289.2-303.64v-59.18h66.4v59.18zm-30 0h-66.4v-59.18h66.4zm-96.4 0h-66.4v-59.18h66.4zm289.2-54.18v54.18h-66.4v-59.18h61.4c2.757 0 5 2.243 5 5zm-452 0c0-2.757 2.243-5 5-5h61.4v59.18h-66.4zm0 442v-54.18h66.4v59.18h-61.4c-2.757 0-5-2.243-5-5zm452 0c0 2.757-2.243 5-5 5h-61.4v-59.18h66.4z"></path><path d="m304.904 158.833c-18.284-.495-36.039 6.538-48.904 19.878-12.075-12.521-28.89-19.901-47.167-19.901-49.934 0-76.224 58.374-44.562 96.149l76.309 91.035c8.046 9.598 22.806 9.584 30.839 0l76.31-91.036h.001c31.384-37.444 5.806-94.857-42.826-96.125zm19.834 76.854-68.738 82.003-68.737-82.002c-15.419-18.393-2.855-46.877 21.57-46.877 14.796 0 27.822 8.908 33.188 22.694 2.243 5.763 7.794 9.559 13.979 9.559s11.735-3.796 13.979-9.559c5.57-14.309 19.244-23.094 34.142-22.682 23.553.613 35.951 28.572 20.617 46.864z"></path></g></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g transform="translate(-161.07 -65.42)"><path d="M166.292,99.541a21.639,21.639,0,0,1,.056-28.257,16.783,16.783,0,0,1,25.491,0l1.232,1.369,1.232-1.369a16.78,16.78,0,0,1,25.487,0,21.628,21.628,0,0,1,.056,28.257L195.4,128.307a2.987,2.987,0,0,1-4.651,0Zm26.779,21.145L215.2,94.651l.066-.073a13.956,13.956,0,0,0,0-18.265,10.82,10.82,0,0,0-16.441,0L195.334,80.2a2.982,2.982,0,0,1-4.526,0l-3.5-3.884a10.817,10.817,0,0,0-16.438,0,13.955,13.955,0,0,0,0,18.265c.023.026.043.048.063.073Z" transform="translate(0)" fill="currentcolor" fill-rule="evenodd"></path></g></svg>
 				<div class="text-menu">Love Story</div>
 			</li>
 			<li class="splide__slide" data-splide-y="11">
@@ -945,7 +879,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 				<div class="text-menu">Rundown Acara</div>
 			</li>
 			<li class="splide__slide" data-splide-y="13">
-				<svg id="Capa_1" enable-background="new 0 0 512.001 512.001" height="512" viewBox="0 0 512.001 512.001" width="512" xmlns="http://www.w3.org/2000/svg"  ><g><path d="m497.044.002c-.014 0-.029-.002-.044-.002h-60c-8.284 0-15 6.716-15 15s6.716 15 15 15h23.787l-36.643 36.643c-8.142-2.769-16.804-4.209-25.768-4.209-34.166 0-55.416 12.291-67.5 23.104-12.084-10.814-33.335-23.104-67.5-23.104-47.942 0-82.5 40.647-82.5 90.151 0 .02.001.04.001.06-2.431-.134-4.925-.212-7.501-.212-47.942 0-82.5 40.647-82.5 90.151 0 41.481 25.818 72.662 55.827 101.499l-16.915 16.917h-53.788c-3.979 0-7.794 1.581-10.606 4.394l-61 61c-4.29 4.29-5.573 10.742-3.252 16.347 2.322 5.604 7.791 9.259 13.858 9.259h45v45c0 6.067 3.654 11.537 9.26 13.858 5.605 2.322 12.057 1.038 16.347-3.252l61-61c2.813-2.813 4.393-6.628 4.393-10.606v-53.787l17.809-17.809c8.587 7.629 49.87 43.368 62.102 54.24 5.682 5.052 14.247 5.052 19.932 0 53.117-47.216 98.09-81.644 121.413-117.477 26.595-23.023 58.044-49.676 77.924-73.691 20.942-25.299 30.696-49.096 30.696-74.891 0-28.885-11.69-54.062-29.949-70.3l31.073-31.072v23.787c0 8.284 6.716 15 15 15s15-6.716 15-15v-59.995c.004-8.175-6.642-14.977-14.956-15.003zm-376.044 429.785-31 31v-23.787c0-8.284-6.716-15-15-15h-23.787l31-31h38.787zm119.876-42.368c-8.71-7.65-42.871-37.224-50.824-44.258l76.554-76.554c5.858-5.858 5.858-15.355 0-21.213-5.857-5.858-15.355-5.858-21.213 0l-77.512 77.512c-29.989-28.662-47.006-52.119-47.006-80.32 0-34.292 22.57-60.151 52.5-60.151 39.646 0 53.081 21.128 54.248 23.103 2.474 5.062 7.471 8.093 13.112 8.188.08.001.158.002.237.002 5.585 0 10.613-3.324 13.203-8.29.119-.23 13.142-23.002 54.199-23.002 29.93 0 52.5 25.859 52.5 60.151 0 14.014-4.202 26.856-12.109 39.747-26.059 35.512-25.808 32.984-107.889 105.085zm149.972-142.435c1.176-49.915-33.217-92.55-82.472-92.55-34.166 0-55.416 12.291-67.5 23.104-6.794-6.08-16.486-12.626-29.742-17.193-.157-1.895-.258-3.805-.258-5.76 0-34.292 22.57-60.151 52.5-60.151 39.643 0 53.079 21.125 54.248 23.103 2.473 5.062 7.47 8.093 13.112 8.188.08.001.158.002.237.002 5.585 0 10.613-3.324 13.203-8.29.119-.23 13.142-23.002 54.199-23.002 29.145 0 52.5 25.023 52.5 60.151.001 32.057-21.987 57.985-60.027 92.398z"></path></g></svg>
+				<svg id="Line_Expand" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg" data-name="Line Expand" class="mx-auto mb-1 h-[16px] w-[16px]" style="color: rgb(196, 153, 165);"><path d="m9.55 10.965a1 1 0 0 0 1.415-1.414l-1.414-1.415a1 1 0 1 0 -1.415 1.414z"></path><path d="m6.793 14.793h2a1 1 0 0 0 0-2h-2a1 1 0 1 0 0 2z"></path><path d="m13.793 9.793a1 1 0 0 0 1-1v-2a1 1 0 1 0 -2 0v2a1 1 0 0 0 1 1z"></path><path d="m31 13.313a3.973 3.973 0 0 0 -1.172-2.828l-.391-.39a3.895 3.895 0 0 0 -1.022-3.852l-.392-.392a3.9 3.9 0 0 0 -1.023-3.851l-.707-.707a1 1 0 0 0 -1.414 0l-7.779 7.778a3.976 3.976 0 0 0 -.45 5.1 5.687 5.687 0 0 0 -.572 1.9 5.67 5.67 0 0 0 -1.906.574 4.11 4.11 0 0 0 -5.1.449l-7.779 7.785a1 1 0 0 0 0 1.414l.707.707a3.893 3.893 0 0 0 3.852 1.023l.391.391a3.893 3.893 0 0 0 3.857 1.023l.39.391a4 4 0 0 0 5.657 0l2.136-2.136c.33.018.661.029.991.029a28.324 28.324 0 0 0 6.808-.943 1 1 0 0 0 .7-.7 27.2 27.2 0 0 0 .916-7.8l2.134-2.134a3.974 3.974 0 0 0 1.168-2.831zm-16.272 15.1a2.048 2.048 0 0 1 -2.829 0l.707-.707a1 1 0 1 0 -1.414-1.414l-.707.708a2.047 2.047 0 0 1 -2.828 0l2.121-2.121a1 1 0 1 0 -1.414-1.414l-2.121 2.121a2.048 2.048 0 0 1 -2.829 0l7.071-7.071a2.041 2.041 0 0 1 1.962-.486 5.614 5.614 0 0 0 .285 7.666 6.606 6.606 0 0 0 3.083 1.632zm10.262-3.422c-2.722.649-8.639 1.494-10.844-.71a3.666 3.666 0 0 1 0-5.185 3.588 3.588 0 0 1 2.571-1.055c.088 0 .178 0 .268.01a1.019 1.019 0 0 0 .774-.291 1 1 0 0 0 .291-.774 3.617 3.617 0 0 1 1.046-2.84 3.673 3.673 0 0 1 5.186 0c2.199 2.2 1.356 8.12.708 10.845zm3.424-10.263-1.093 1.093a6.625 6.625 0 0 0 -1.621-3.089 5.658 5.658 0 0 0 -7.678-.274 1.944 1.944 0 0 1 .5-1.973l7.071-7.071a2 2 0 0 1 0 2.828l-2.129 2.122a1 1 0 1 0 1.414 1.414l2.122-2.121a2 2 0 0 1 0 2.828l-.707.707a1 1 0 1 0 1.414 1.414l.707-.707a2 2 0 0 1 0 2.829z"></path></svg>
 				<div class="text-menu">Doa</div>
 			</li>
 			<li class="splide__slide" data-splide-y="14">
@@ -953,7 +887,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 				<div class="text-menu">RSVP</div>
 			</li>
 			<li class="splide__slide" data-splide-y="15">
-				<svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"  ><g><path d="m191.048 203.939c29.102 20.787 57.834 33.196 59.043 33.714 3.773 1.617 8.044 1.617 11.817 0 41.052-17.083 124.493-69.806 121.556-126.255.525-65.013-76.353-102.842-127.464-62.911-87.417-61.885-199.129 65.778-64.952 155.452zm16.752-141.806c14.119 0 27.588 6.086 36.954 16.697 5.649 6.702 16.843 6.702 22.492 0 29.541-33.873 86.428-12.403 86.22 32.571 0 41.699-65.576 81.068-97.466 96.017-31.9-14.954-97.467-54.321-97.467-96.018 0-27.166 22.101-49.267 49.267-49.267z"></path><path d="m56.492 28.42 32.133 16.067c7.4 3.699 16.414.714 20.125-6.708 3.705-7.41.702-16.42-6.708-20.125l-32.133-16.067c-7.411-3.704-16.42-.702-20.125 6.708-3.705 7.409-.702 16.42 6.708 20.125z"></path><path d="m423.375 44.487 32.133-16.067c7.41-3.705 10.413-12.715 6.708-20.125s-12.714-10.412-20.125-6.708l-32.133 16.067c-7.41 3.705-10.413 12.715-6.708 20.125 3.711 7.421 12.726 10.406 20.125 6.708z"></path><path d="m88.625 194.38-32.133 16.067c-7.41 3.705-10.413 12.715-6.708 20.125s12.714 10.412 20.125 6.708l32.133-16.067c7.41-3.705 10.413-12.715 6.708-20.125-3.711-7.422-12.725-10.407-20.125-6.708z"></path><path d="m47.133 134.433h32.133c19.881-.738 19.866-29.269 0-30h-32.133c-19.88.738-19.865 29.269 0 30z"></path><path d="m409.958 221.213 32.133 16.067c7.411 3.704 16.42.702 20.125-6.708s.702-16.42-6.708-20.125l-32.133-16.067c-7.399-3.699-16.414-.714-20.125 6.708-3.705 7.409-.702 16.42 6.708 20.125z"></path><path d="m417.733 119.433c0 8.284 6.716 15 15 15h32.133c19.881-.738 19.866-29.269 0-30h-32.133c-8.284 0-15 6.716-15 15z"></path><path d="m507.606 341.794-64.266-64.267c-2.812-2.813-6.628-4.394-10.606-4.394h-353.467c-3.979 0-7.793 1.581-10.606 4.394l-64.267 64.267c-4.29 4.29-5.573 10.742-3.252 16.347 2.322 5.605 7.792 9.26 13.858 9.26h49.266v129.599c0 8.284 6.716 15 15 15h353.467c8.284 0 15-6.716 15-15v-129.6h49.267c6.067 0 11.536-3.655 13.858-9.26 2.321-5.604 1.038-12.056-3.252-16.346zm-89.873 140.206h-323.466v-114.6h323.467v114.6zm-366.52-144.6 34.267-34.267h341.041l34.267 34.267z"></path><path d="m336.333 447.733h32.134c19.881-.738 19.866-29.269 0-30h-32.134c-19.881.738-19.866 29.27 0 30z"></path></g></svg>
+				<svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"  ><g><path d="m191.048 203.939c29.102 20.787 57.834 33.196 59.043 33.714 3.773 1.617 8.044 1.617 11.817 0 41.052-17.083 124.493-69.806 121.556-126.255.525-65.013-76.353-102.842-127.464-62.911-87.417-61.885-199.129 65.778-64.952 155.452zm16.752-141.806c14.119 0 27.588 6.086 36.954 16.697 5.649 6.702 16.843 6.702 22.492 0 29.541-33.873 86.428-12.403 86.22 32.571 0 41.699-65.576 81.068-97.466 96.017-31.9-14.954-97.467-54.321-97.467-96.018 0-27.166 22.101-49.267 49.267-49.267z"></path><path d="m56.492 28.42 32.133 16.067c7.4 3.699 16.414.714 20.125-6.708 3.705-7.41.702-16.42-6.708-20.125l-32.133-16.067c-7.411-3.704-16.42-.702-20.125 6.708-3.705 7.409-.702 16.42 6.708 20.125z"></path><path d="m423.375 44.487 32.133-16.067c7.41-3.705 10.413-12.715 6.708-20.125s-12.714-10.412-20.125-6.708l-32.133 16.067c-7.41 3.705-10.413 12.715-6.708 20.125 3.711 7.421 12.726 10.406 20.125 6.708z"></path><path d="m88.625 194.38-32.133 16.067c-7.41 3.705-10.413 12.715-6.708 20.125s12.714 10.412 20.125 6.708l32.133-16.067c7.41-3.705 10.413-12.715 6.708-20.125-3.711-7.422-12.725-10.407-20.125-6.708z"></path><path d="m47.133 134.433h32.133c19.881-.738 19.866-29.269 0-30h-32.133c-19.88.738-19.865 29.269 0 30z"></path><path d="m409.958 221.213 32.133 16.067c7.411 3.704 16.42.702 20.125-6.708s.702-16.42-6.708-20.125l-32.133-16.067c-7.399-3.699-16.414-.714-20.125 6.708-3.705 7.409-.702 16.42 6.708 20.125z"></path><path d="m417.733 119.433c0 8.284 6.716 15 15 15h32.133c19.881-.738 19.866-29.269 0-30h-32.133c-8.284 0-15 6.716-15 15z"></path><path d="m507.606 341.794-64.266-64.267c-2.812-2.813-6.628-4.394-10.606-4.394h-353.467c-3.979 0-7.793 1.581-10.606 4.394l-64.267 64.267c-4.29 4.29-5.573 10.742-3.252 16.347 2.322 5.605 7.792 9.26 13.858 9.26h49.266v129.599c0 8.284 6.716 15 15 15h353.467c8.284 0 15-6.716 15-15v-129.6h49.267c6.067 0 11.536-3.655 13.858-9.26 2.321-5.604 1.038-12.056-3.252-16.346zm-89.873 140.206h-323.466v-114.6h323.467v114.6zm-366.52-144.6 34.267-34.267h341.041l34.267 34.267z"></path><path d="m336.333 447.733h32.134c19.881-.738 19.866-29.269 0-30h-32.134c-19.881.738-19.866 29.27 0 30z"></path></g></svg>
 				<div class="text-menu">Gift</div>
 			</li>
 			<li class="splide__slide" data-splide-y="16">	
@@ -977,28 +911,237 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 </div>
 </div>
 <!-- end wrapper -->
-
+<div id="result"></div>
+<div class="swipe-text" id="swipeText"></div>
 <!-- Footer Scripts -->
-<script src="
-https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
-"></script>
+<script src="js/splide.min.js"></script>
 <script src="js/jquery.magnific-popup.js"></script>
 
 <script>
+	$("#submitButton").click(function(){
+		var name=$("#form_name").val();
+		var wa=$("#form_wa").val();
+		var kehadiran=$("#kehadiran").val();
+		var qty=$("#qty-input").val();
+		var message=$("#form_message").val();
+		var id_wedding=<?php echo $id_wedding ?>;
 
+		// Pengecekan jika name, wa, atau message kosong
+		if(name.trim() === '' || wa.trim() === '' || message.trim() === '') {
+			alert("Nama, No WhatsApaa, and Pesan wajib diisi!");
+			return; // Menghentikan eksekusi fungsi jika ada yang kosong
+		}
+		
+		// Jika qty kosong, atur nilai ke null
+		if(qty.trim() === '') {
+			qty = null;
+		}
+		
+		$.ajax({
+			url:'pro_tambah_komentar.php',
+			method:'POST',
+			data:{
+				id_wedding:id_wedding,
+				name:name,
+				wa:wa,
+				kehadiran:kehadiran,
+				qty:qty,
+				message:message
+			},
+			success:function(data){
+				/* Alert the copied text */
+				var overlay = document.createElement('div');
+				overlay.classList.add('overlay');
+				document.body.appendChild(overlay);
+
+				var alertBox = document.createElement('div');
+				alertBox.classList.add('custom-alert');
+				alertBox.innerHTML = `
+					<div class="check-icon"></div>
+					<div>
+					${data}
+					</div>
+				`;
+				document.body.appendChild(alertBox);
+
+				overlay.style.display = 'block';
+				alertBox.style.display = 'block';
+
+				setTimeout(function () {
+					$('.custom-alert').addClass("active");
+				}, 200);
+
+				
+				setTimeout(function () {
+					$('.custom-alert').removeClass("active");
+				}, 2800);
+				
+				// Close the custom alert box after 2 seconds
+				setTimeout(function () {
+					closeCustomAlert();
+				}, 13000);
+
+				// Mengosongkan nilai input setelah pengiriman berhasil
+				$("#form_name").val("");
+				$("#form_wa").val("");
+				$("#kehadiran").val("");
+				$("#qty-input").val("");
+				$("#form_message").val("");
+			},
+			error: function(xhr, status, error) {
+				alert("AJAX request failed: " + status + "\nError: " + error);
+			}
+		});
+	});
+	
      document.addEventListener('DOMContentLoaded', function () {
 		
         var splide = new Splide('#vertical-slider', {
-            type: false,
-			interval : 5000, // Atur interval (dalam milidetik)
-			speed : 1000, // Atur kecepatan geser slide (dalam milidetik)
-            direction: 'ttb', // Vertikal (Top to Bottom)
-            height: '100%', // Tinggi slider
-            autoHeight: false, // Matikan penyesuaian tinggi otomatis
-            arrows: false, // Matikan panah navigasi
-            pagination: false // Matikan pagination bawaan
-        }).mount();
+			type: false,
+			interval: 6000, // Atur interval (dalam milidetik)
+			speed: 700, // Atur kecepatan geser slide (dalam milidetik)
+			direction: 'ttb', // Vertikal (Top to Bottom)
+			height: '100%', // Tinggi slider
+			autoplay: true,
+			autoHeight: false, // Matikan penyesuaian tinggi otomatis
+			arrows: false, // Matikan panah navigasi
+			pagination: false, // Nonaktifkan paginasi
+			drag: false, // Nonaktifkan kemampuan seret
+		}).mount();
 		
+		var startX, startY, endX, endY;
+
+		// Fungsi untuk menangani pergerakan mouse pada desktop
+		function handleMouseDown(event) {
+			startX = event.clientX;
+			startY = event.clientY;
+			// Tambah event listener untuk event mousemove dan mouseup
+			document.addEventListener('mousemove', handleMouseMove);
+			document.addEventListener('mouseup', handleMouseUp);
+		}
+
+		function handleMouseMove(event) {
+			// Update posisi mouse saat mouse bergerak
+			endX = event.clientX;
+			endY = event.clientY;
+		}
+
+		function handleMouseUp(event) {
+			// Hapus event listener untuk event mousemove dan mouseup
+			document.removeEventListener('mousemove', handleMouseMove);
+			document.removeEventListener('mouseup', handleMouseUp);
+			detectSwipe();
+		}
+
+		// Fungsi untuk menangani pergerakan touch pada perangkat mobile
+		function handleTouchStart(event) {
+			var touch = event.touches[0]; // Mendapatkan informasi touch pertama
+			startX = touch.clientX;
+			startY = touch.clientY;
+			// Tambah event listener untuk event touchmove dan touchend
+			document.addEventListener('touchmove', handleTouchMove);
+			document.addEventListener('touchend', handleTouchEnd);
+		}
+
+		function handleTouchMove(event) {
+			var touch = event.touches[0]; // Mendapatkan informasi touch pertama
+			// Update posisi touch saat touch bergerak
+			endX = touch.clientX;
+			endY = touch.clientY;
+		}
+
+		function handleTouchEnd(event) {
+			// Hapus event listener untuk event touchmove dan touchend
+			document.removeEventListener('touchmove', handleTouchMove);
+			document.removeEventListener('touchend', handleTouchEnd);
+			detectSwipe();
+		}
+
+		// Fungsi untuk mendeteksi arah swipe dan memindahkan slide
+		function detectSwipe() {
+			// Menghitung jarak horizontal dan vertikal antara titik awal dan akhir pergerakan
+			var diffX = startX - endX;
+			var diffY = startY - endY;
+
+			// Mendapatkan tinggi (height) halaman web
+			var pageHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+			// Jika pergerakan vertikal lebih besar daripada pergerakan horizontal
+			if (Math.abs(diffX) < Math.abs(diffY)) {
+				// Swipe ke atas
+				if (diffY > 0 && pageHeight <= window.innerHeight) {
+					// alert('Swipe ke atas, tinggi halaman hanya setinggi satu layar.'); // Tampilkan alert swipe ke atas
+					var nextIndex = splide.index + 1; // Indeks slide berikutnya
+					splide.go(nextIndex); // Pindah ke slide berikutnya
+				}
+				// Swipe ke bawah
+				else if (diffY < 0 && pageHeight <= window.innerHeight) {
+					// alert('Swipe ke bawah, tinggi halaman hanya setinggi satu layar.'); // Tampilkan alert swipe ke bawah
+					var prevIndex = splide.index - 1; // Indeks slide sebelumnya
+					splide.go(prevIndex); // Pindah ke slide sebelumnya
+				}
+			}
+		}
+
+		// Tambahkan event listener untuk mousedown dan touchstart pada elemen slider
+		var splideElement = document.querySelector('.splide');
+		splideElement.addEventListener('mousedown', handleMouseDown);
+		splideElement.addEventListener('touchstart', handleTouchStart);
+
+		
+
+		var fullscreenBtn = document.getElementById("fullscreenBtn");
+
+		fullscreenBtn.addEventListener('click', function () {
+			if (splide.options.autoplay) {
+				splide.options.autoplay = false; // Matikan autoplay jika sedang aktif
+			} else {
+				splide.options.autoplay = true; // Aktifkan autoplay jika sedang tidak aktif
+			}
+			
+			splide.refresh(); // Perbarui tampilan Splide
+		});
+
+		var toggleButtons = document.querySelectorAll('.toggleAutoplay');
+
+		// Mengaktifkan atau menonaktifkan autoplay ketika tombol "Toggle Autoplay" diklik
+		toggleButtons.forEach(function(button) {
+			button.addEventListener('click', function () {
+			if (splide.is( 'playing' )) {
+				splide.pause(); // Jeda autoplay jika sedang berjalan
+			} else {
+				splide.play(); // Lanjutkan autoplay jika sedang dijeda
+			}
+			});
+		});
+
+
+		var content = document.getElementById("fullpage");
+
+		// fullscreen
+		fullscreenBtn.addEventListener("click", function() {
+			if (content.requestFullscreen) {
+			content.requestFullscreen();
+			} else if (content.mozRequestFullScreen) { /* Firefox */
+			content.mozRequestFullScreen();
+			} else if (content.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+			content.webkitRequestFullscreen();
+			} else if (content.msRequestFullscreen) { /* IE/Edge */
+			content.msRequestFullscreen();
+			}
+		});
+
+		// Mengaktifkan atau menonaktifkan autoplay ketika tombol "Toggle Autoplay" diklik
+		fullscreenBtn.addEventListener('click', function () {
+			if (splide.options.autoplay) {
+			splide.options.autoplay = false; // Matikan autoplay jika sedang aktif
+			} else {
+			splide.options.autoplay = true; // Aktifkan autoplay jika sedang tidak aktif
+			}
+			splide.refresh(); // Perbarui tampilan Splide
+		});
+
+
 		window.addEventListener('resize', function() {
 			var windowHeight = window.innerHeight;
 			var sliderHeight = windowHeight; // 60px dari 100vh
@@ -1041,6 +1184,68 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		slideButton.addEventListener('click', function () {
 		  splide.go(1); // Menggeser ke slide kedua (indeks dimulai dari 0)
 		});
+
+		// Show hide qty orang comment form
+		var kehadiran = document.getElementById('kehadiran');
+		var qtyInput = document.getElementById('qty-input');
+
+		kehadiran.addEventListener('change', function () {
+			var selectedOption = kehadiran.value;
+
+			// Konten yang sesuai dengan opsi yang dipilih ditampilkan
+			if (selectedOption === 'hadir') {
+				qtyInput.classList.remove('d-none');
+			} else {
+				qtyInput.classList.add('d-none');
+			}
+		});
+
+		var videoContainer = document.getElementById('vertical-slider-slide02');
+		var video = videoContainer.querySelector('video');
+		var isPlaying = false; // Menyimpan status pemutaran video
+
+		// Fungsi untuk memainkan video
+		function playVideo() {
+			if (!isPlaying) {
+			video.play();
+			isPlaying = true;
+			}
+		}
+
+		// Fungsi untuk menghentikan video
+		function pauseVideo() {
+			if (isPlaying) {
+			video.pause();
+			video.currentTime = 0; // Mengatur currentTime ke 0 saat video tersembunyi
+			isPlaying = false;
+			}
+		}
+
+		// Membuat observer untuk memantau perubahan pada class parent
+		var observer = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation) {
+			if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+				var currentClass = videoContainer.getAttribute('class');
+				if (currentClass.includes('is-active')) {
+				playVideo();
+				} else {
+				pauseVideo();
+				}
+			}
+			});
+		});
+
+		// Mengawasi perubahan pada class parent
+		observer.observe(videoContainer, { attributes: true });
+
+		// Memastikan video dimulai atau dihentikan saat halaman dimuat
+		if (videoContainer.classList.contains('is-active')) {
+			playVideo();
+		} else {
+			pauseVideo();
+		}
+
+
     });
 
 	// loading screen
@@ -1085,8 +1290,47 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		document.body.removeChild(tempTextArea);
 
 		/* Alert the copied text */
-		alert("Text copied!");
+		var overlay = document.createElement('div');
+		overlay.classList.add('overlay');
+		document.body.appendChild(overlay);
+
+		var alertBox = document.createElement('div');
+		alertBox.classList.add('custom-alert');
+		alertBox.innerHTML = `
+			<div class="check-icon"></div>
+			<div>
+			${divText} successfully copied to the clipboard!
+			</div>
+		`;
+		document.body.appendChild(alertBox);
+
+		overlay.style.display = 'block';
+		alertBox.style.display = 'block';
+
+		setTimeout(function () {
+			$('.custom-alert').addClass("active");
+		}, 200);
+
+		
+		setTimeout(function () {
+			$('.custom-alert').removeClass("active");
+		}, 2800);
+		
+		// Close the custom alert box after 2 seconds
+		setTimeout(function () {
+			closeCustomAlert();
+		}, 13000);
 	}
+	function closeCustomAlert() {
+      var overlay = document.querySelector('.overlay');
+      var alertBox = document.querySelector('.custom-alert');
+
+      overlay.style.display = 'none';
+      alertBox.style.display = 'none';
+
+      overlay.remove();
+      alertBox.remove();
+    }
 	
 	function copyBank2() {
 		/* Get the text from the div */
@@ -1110,7 +1354,37 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		document.body.removeChild(tempTextArea);
 
 		/* Alert the copied text */
-		alert("Text copied!");
+		/* Alert the copied text */
+		var overlay = document.createElement('div');
+		overlay.classList.add('overlay');
+		document.body.appendChild(overlay);
+
+		var alertBox = document.createElement('div');
+		alertBox.classList.add('custom-alert');
+		alertBox.innerHTML = `
+			<div class="check-icon"></div>
+			<div>
+			${divText} successfully copied to the clipboard!
+			</div>
+		`;
+		document.body.appendChild(alertBox);
+
+		overlay.style.display = 'block';
+		alertBox.style.display = 'block';
+
+		setTimeout(function () {
+			$('.custom-alert').addClass("active");
+		}, 200);
+
+		
+		setTimeout(function () {
+			$('.custom-alert').removeClass("active");
+		}, 2800);
+		
+		// Close the custom alert box after 2 seconds
+		setTimeout(function () {
+			closeCustomAlert();
+		}, 13000);
 	}
 	
 	function copyAlamat() {
@@ -1135,7 +1409,37 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		document.body.removeChild(tempTextArea);
 
 		/* Alert the copied text */
-		alert("Text copied!");
+		/* Alert the copied text */
+		var overlay = document.createElement('div');
+		overlay.classList.add('overlay');
+		document.body.appendChild(overlay);
+
+		var alertBox = document.createElement('div');
+		alertBox.classList.add('custom-alert');
+		alertBox.innerHTML = `
+			<div class="check-icon"></div>
+			<div>
+			${divText} successfully copied to the clipboard!
+			</div>
+		`;
+		document.body.appendChild(alertBox);
+
+		overlay.style.display = 'block';
+		alertBox.style.display = 'block';
+
+		setTimeout(function () {
+			$('.custom-alert').addClass("active");
+		}, 200);
+
+		
+		setTimeout(function () {
+			$('.custom-alert').removeClass("active");
+		}, 2800);
+		
+		// Close the custom alert box after 2 seconds
+		setTimeout(function () {
+			closeCustomAlert();
+		}, 13000);
 	}
 
 	
@@ -1162,23 +1466,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		});
 	});
 	
-	// Fullscreen
-	document.addEventListener("DOMContentLoaded", function() {
-		var fullscreenBtn = document.getElementById("fullscreenBtn");
-		var content = document.getElementById("fullpage");
-
-		fullscreenBtn.addEventListener("click", function() {
-			if (content.requestFullscreen) {
-			content.requestFullscreen();
-			} else if (content.mozRequestFullScreen) { /* Firefox */
-			content.mozRequestFullScreen();
-			} else if (content.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-			content.webkitRequestFullscreen();
-			} else if (content.msRequestFullscreen) { /* IE/Edge */
-			content.msRequestFullscreen();
-			}
-		});
-	});
 	
 	
 	// Set the date we're counting down to
@@ -1274,6 +1561,27 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 	}
 
 	$(document).ready(function() {
+		function fetchData() {
+			$.ajax({
+				url: 'data_komentar.php', // Ubah sesuai dengan nama skrip PHP Anda
+				method: 'GET', // Sesuaikan dengan metode HTTP yang digunakan oleh skrip PHP Anda
+				success: function(data) {
+					// Memperbarui konten HTML dengan data yang diperoleh dari server
+					$('#commentsContainer').html(data);
+				},
+				error: function(xhr, status, error) {
+					console.error('AJAX request failed:', error);
+				}
+			});
+		}
+
+		// Panggil fungsi fetchData saat halaman pertama kali dimuat
+		fetchData();
+
+		// Set interval untuk melakukan polling data setiap 5 detik
+		setInterval(fetchData, 1000); // Ubah interval sesuai kebutuhan
+
+
 		$('.foto-wrapper').magnificPopup({
 		  delegate: 'a', // child items selector, by clicking on it popup will open
 		  type: 'image',
@@ -1282,28 +1590,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		});
 	
 	});
-	
+
 	document.addEventListener('DOMContentLoaded', function() {
-		const animatedBoxes = document.querySelectorAll('.animated');
-
-		const observer = new IntersectionObserver(entries => {
-		  entries.forEach(entry => {
-			if (entry.intersectionRatio > 0) {
-			  // Ketika elemen muncul di layar
-			  entry.target.classList.add('animate__animated'); // Menambahkan kelas animate__animated
-			} else {
-			  // Ketika elemen tidak lagi terlihat
-			  entry.target.classList.remove('animate__animated');
-			}
-		  });
-		});
-
-		// Mengamati setiap elemen dengan kelas 'box'
-		animatedBoxes.forEach(box => {
-		  observer.observe(box);
-		});
-	});
-	  document.addEventListener('DOMContentLoaded', function() {
 		const animatedUp = document.querySelectorAll('.animatedUp');
 		const animatedDown = document.querySelectorAll('.animatedDown');
 		const animatedRight = document.querySelectorAll('.animatedRight');
@@ -1311,74 +1599,74 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 		const animatedZoom = document.querySelectorAll('.animatedZoom');
 
 		const observerUp = new IntersectionObserver(entries => {
-		  entries.forEach(entry => {
+			entries.forEach(entry => {
 			if (entry.intersectionRatio > 0) {
-			  // Ketika elemen muncul di layar
-			  entry.target.classList.add('animate__animated', 'animate__fadeInUp'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+				// Ketika elemen muncul di layar
+				entry.target.classList.add('animate__animated', 'animate__fadeInUp'); // Menambahkan kelas animate__animated dan animate__fadeInUp
 			} else {
-			  // Ketika elemen tidak lagi terlihat
-			  entry.target.classList.remove('animate__animated', 'animate__fadeInUp');
+				// Ketika elemen tidak lagi terlihat
+				entry.target.classList.remove('animate__animated', 'animate__fadeInUp');
 			}
-		  });
+			});
 		});
 
 		// Mengamati setiap elemen dengan kelas 'animatedUp'
 		animatedUp.forEach(box => {
-		  observerUp.observe(box);
+			observerUp.observe(box);
 		});
 		
 		
 		const observerDown = new IntersectionObserver(entries => {
-		  entries.forEach(entry => {
+			entries.forEach(entry => {
 			if (entry.intersectionRatio > 0) {
-			  // Ketika elemen muncul di layar
-			  entry.target.classList.add('animate__animated', 'animate__fadeInDown'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+				// Ketika elemen muncul di layar
+				entry.target.classList.add('animate__animated', 'animate__fadeInDown'); // Menambahkan kelas animate__animated dan animate__fadeInUp
 			} else {
-			  // Ketika elemen tidak lagi terlihat
-			  entry.target.classList.remove('animate__animated', 'animate__fadeInDown');
+				// Ketika elemen tidak lagi terlihat
+				entry.target.classList.remove('animate__animated', 'animate__fadeInDown');
 			}
-		  });
+			});
 		});
 
 		// Mengamati setiap elemen dengan kelas 'animatedDown'
 		animatedDown.forEach(box => {
-		  observerDown.observe(box);
+			observerDown.observe(box);
 		});
 		
 		
 		const observerRight = new IntersectionObserver(entries => {
-		  entries.forEach(entry => {
+			entries.forEach(entry => {
 			if (entry.intersectionRatio > 0) {
-			  // Ketika elemen muncul di layar
-			  entry.target.classList.add('animate__animated', 'animate__fadeInRight'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+				// Ketika elemen muncul di layar
+				entry.target.classList.add('animate__animated', 'animate__fadeInRight'); // Menambahkan kelas animate__animated dan animate__fadeInUp
 			} else {
-			  // Ketika elemen tidak lagi terlihat
-			  entry.target.classList.remove('animate__animated', 'animate__fadeInRight');
+				// Ketika elemen tidak lagi terlihat
+				entry.target.classList.remove('animate__animated', 'animate__fadeInRight');
 			}
-		  });
+			});
 		});
 
 		// Mengamati setiap elemen dengan kelas 'animatedRight'
 		animatedRight.forEach(box => {
-		  observerRight.observe(box);
+			observerRight.observe(box);
 		});
 		
 		
 		const observerLeft = new IntersectionObserver(entries => {
-		  entries.forEach(entry => {
+			entries.forEach(entry => {
 			if (entry.intersectionRatio > 0) {
-			  // Ketika elemen muncul di layar
-			  entry.target.classList.add('animate__animated', 'animate__fadeInLeft'); // Menambahkan kelas animate__animated dan animate__fadeInUp
+				// Ketika elemen muncul di layar
+				entry.target.classList.add('animate__animated', 'animate__fadeInLeft'); // Menambahkan kelas animate__animated dan animate__fadeInUp
 			} else {
-			  // Ketika elemen tidak lagi terlihat
-			  entry.target.classList.remove('animate__animated', 'animate__fadeInLeft');
+				// Ketika elemen tidak lagi terlihat
+				entry.target.classList.remove('animate__animated', 'animate__fadeInLeft');
 			}
-		  });
+			});
 		});
 
 		// Mengamati setiap elemen dengan kelas 'animatedLeft'
 		animatedLeft.forEach(box => {
-		  observerLeft.observe(box);
+			observerLeft.observe(box);
 		});
 
 

@@ -199,7 +199,7 @@ div#kepada label {
     font-family: "Montserrat", sans-serif;
 }
 div#wrapper {
-    overflow-x: hidden;
+    /* overflow: hidden; */
     width: 451px;
 	max-width:100%;
     margin: 0 auto;
@@ -332,7 +332,7 @@ div#song-button {
     bottom: 75px;
     right: 15px;
     width: 42px;
-    height: 45px;
+    height: 42px;
     border-radius: 50%;
     z-index: 9;
     overflow: hidden;
@@ -417,6 +417,53 @@ section#cover {
     padding: 0 10px;
 }
 
+/*popup copy*/
+.custom-alert {
+    position: fixed;
+    width: 350px;
+    background: #fff;
+    top: 20px;
+    opacity: 0;
+    z-index: 9999;
+    right: -200px;
+    transform:  scale(1);
+    padding: 14px 20px 14px 56px;
+    border-radius: 10px;
+    font-size: 12pt;
+    transition: 0.2s ease-in-out;
+    font-weight: 500;
+  }
+  .custom-alert.active {
+    top:20px;
+    opacity: 1;
+    right: 20px;
+    transform: scale(1);
+  }
+  .custom-alert .check-icon:before {
+    content: "";
+    width: 14px;
+    height: 9px;
+    border-bottom: 4px solid #fff;
+    border-left: 4px solid #fff;
+    display: block;
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 6px;
+    left: 5px;
+  }
+  .custom-alert .check-icon {
+    width: 24px;
+    height: 24px;
+    border: 0;
+    background: #05d515;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
 /*opening*/
 section#opening {
     padding: 0;
@@ -425,6 +472,9 @@ section#opening {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#opening .animate__slower {
+    animation-delay: 1.5s;
 }
 .row.text-opening p {
     margin: 0;
@@ -618,24 +668,27 @@ section#quran {
     text-align: center;
     padding: 0 5px;
 }
-
+.swipe-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000000;
+    background: #f00;
+}
 section#event .container,#gallery .container{position:relative;z-index:1;}
 section#event {
     text-align: center;
     position: relative;
     padding: 70px 0 ;
     overflow: hidden;
-}
-section#event:before {
-    width: 1400px;
-    background: url(background-hijau.png)no-repeat;
-    content: "";
-    height: 1400px;
-    position: absolute;
-    bottom: -700px;
-    right: -400px;
-    opacity: 0.1;
-    background-size: 100% 100%;
 }
 .content-event h2{margin-top:0;font-weight:bold;}
 .content-event {
@@ -712,7 +765,7 @@ section#couple h1.page-header {
     position: absolute;
     width: 124%;
     height: 124%;
-    background: url(https://satu.love/_next/image?url=https%3A%2F%2Fbe.satu.love%2Flibrary%2Flibrary_1695615439667xhpqvhh.png&w=1920&q=75) no-repeat;
+    background: url(bg-mempelai.webp) no-repeat;
     top: 50%;
     left: 50%;
     background-size: auto 100%;
@@ -907,11 +960,12 @@ div#sync1{margin-bottom:20px}
 /*story*/
 .story-wrapper {
     background: rgba(142, 89, 120, 0.95);
-    z-index: 2;
+    z-index: 10;
     font-family: "Montserrat", sans-serif;
     color: #fff;
     line-height: 1.5;
     font-size: 11pt;
+    top:0;
 }
 div#story-wrapper img {
     width: 160px;
@@ -964,7 +1018,7 @@ section#couple h2 {
 .footer-top > div {
 	padding: 0;
 }
-form#formucapan {
+#formucapan {
 	padding: 30px 30px 35px;
 	background: #fff;
 	position:relative;
@@ -974,19 +1028,19 @@ form#formucapan {
 }
 button.close-form {
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     border: 0;
-    opacity: 0;
+    background: rgba(0, 0, 0, .6);
 }
-form#formucapan button.btn.btn-primary {
+#formucapan button.btn.btn-primary {
 	position: relative;
 	border: 0 !important;
 }
 .form-group {
     margin-bottom: 16px;
 }
-form#formucapan button.btn.btn-primary i {
+#formucapan button.btn.btn-primary i {
 	margin-right: 10px;
 }
 .content-cover h2 {
@@ -1097,8 +1151,8 @@ img.bank-image {
     font-size: 17pt;
 }
 .modal-kado {
-    background: rgba(0, 0, 0, .6);
-    z-index: 2;
+    background: rgba(0, 0, 0, .0);
+    z-index: 10;
 }
 img.img-protokol {
     width: 80%;

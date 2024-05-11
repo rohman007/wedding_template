@@ -1,24 +1,29 @@
 <?php
 // Load file koneksi.php
 include "config.php";
+if(isset($_POST['name']) && isset($_POST['wa']) && isset($_POST['kehadiran']) && isset($_POST['message'])) {
 
-if(isset($_POST['submit'])){
 	$id_wedding = $_POST['id_wedding'];
-	$nama = $_POST['nama'];
-	$no_wa = $_POST['no_wa'];
+	$name = $_POST['name'];
+	$wa = $_POST['wa'];
 	$to = $_POST['to'];
-	$qty = $_POST['qty'];
-	$isi_komentar = $_POST['isi_komentar'];
+	$qty = $_POST['qty'] ? $_POST['qty'] : null;
+	$message = $_POST['message'];
 	$kehadiran = $_POST['kehadiran'];
-	$query2=mysqli_query($conn,"INSERT INTO komentar VALUES (NULL,'".$id_wedding."','".$nama."','".$no_wa."','".$isi_komentar."','".$kehadiran."','".$qty."')") or die(mysqli_error($conn));
-	if($to != ""){
-		echo '<script language="javascript">alert("Terima Kasih Atas Ucapannya!"); document.location="index.php?to='.$to.'#thankyou";</script>'; die();
+
+	// Menyimpan data ke dalam database
+	$query = "INSERT INTO komentar (id_wedding, nama, no_wa, isi_komentar, kehadiran, qty) 
+              VALUES ('$id_wedding', '$name', '$wa', '$message', '$kehadiran', " . ($qty !== null ? "'$qty'" : "NULL") . ")";
+	$result = mysqli_query($conn, $query);
+
+	// Menampilkan pesan berdasarkan hasil penyimpanan data
+	if($result) {
+		echo "Terima Kasih Atas Ucapannya!";
 	} else {
-		echo '<script language="javascript">alert("Terima Kasih Atas Ucapannya!"); document.location="index.php#thankyou";</script>'; die();
+		echo "Failed to insert data!";
 	}
-}
-else{
-    echo '<script language="javascript">alert("Ups! Terjadi Error, Silahkan Kontak Admin"); document.location="index.php#formucapan";</script>'; die();
+} else {
+    echo "Incomplete data received!";
 }
 
 ?>
