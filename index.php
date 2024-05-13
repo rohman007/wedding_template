@@ -916,6 +916,8 @@ $rundown = array (
 <!-- Footer Scripts -->
 <script src="js/splide.min.js"></script>
 <script src="js/jquery.magnific-popup.js"></script>
+<script src="js/hammer.min.js"></script>
+
 
 <script>
 	$("#submitButton").click(function(){
@@ -993,7 +995,16 @@ $rundown = array (
 			}
 		});
 	});
-	
+	document.addEventListener('DOMContentLoaded', function () {
+		var container = document.getElementById('wrapper');
+		var hammertime = new Hammer(container);
+
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_DOWN });
+
+		hammertime.on('swipedown', function (ev) {
+			ev.preventDefault(); // Menghentikan perilaku default saat swipe ke bawah
+		});
+	});
      document.addEventListener('DOMContentLoaded', function () {
 		
         var splide = new Splide('#vertical-slider', {
@@ -1001,7 +1012,7 @@ $rundown = array (
 			interval: 6000, // Atur interval (dalam milidetik)
 			speed: 700, // Atur kecepatan geser slide (dalam milidetik)
 			direction: 'ttb', // Vertikal (Top to Bottom)
-			height: 'calc(100vh - 60px)', // Tinggi slider
+			height: 'calc(100dvh)', // Tinggi slider
 			autoplay: true,
 			autoHeight: false, // Matikan penyesuaian tinggi otomatis
 			arrows: false, // Matikan panah navigasi
