@@ -1145,6 +1145,7 @@ $rundown = array (
 		window.addEventListener('resize', function() {
 			var windowHeight = window.innerHeight;
 			var sliderHeight = windowHeight; // 60px dari 100vh
+			document.querySelector('#vertical-slider .splide__slide').style.height = 'calc(' + sliderHeight + 'px - 60px)';
 			document.getElementById('vertical-slider').style.height = 'calc(' + sliderHeight + 'px - 60px)';
 			document.getElementById('wrapper').style.height = 'calc(' + sliderHeight + 'px - 0px)';
 		});
