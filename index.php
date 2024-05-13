@@ -1001,7 +1001,7 @@ $rundown = array (
 			interval: 6000, // Atur interval (dalam milidetik)
 			speed: 700, // Atur kecepatan geser slide (dalam milidetik)
 			direction: 'ttb', // Vertikal (Top to Bottom)
-			height: '100%', // Tinggi slider
+			height: 'calc(100vh - 60px)', // Tinggi slider
 			autoplay: true,
 			autoHeight: false, // Matikan penyesuaian tinggi otomatis
 			arrows: false, // Matikan panah navigasi
@@ -1145,7 +1145,6 @@ $rundown = array (
 		window.addEventListener('resize', function() {
 			var windowHeight = window.innerHeight;
 			var sliderHeight = windowHeight; // 60px dari 100vh
-			document.querySelector('#vertical-slider .splide__slide').style.height = 'calc(' + sliderHeight + 'px - 60px)';
 			document.getElementById('vertical-slider').style.height = 'calc(' + sliderHeight + 'px - 60px)';
 			document.getElementById('wrapper').style.height = 'calc(' + sliderHeight + 'px - 0px)';
 		});
